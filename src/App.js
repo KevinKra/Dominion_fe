@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <section className='TableDeck'>
+        <section className='VictoryCards'>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+        </section>
+        <section className='PrimaryCards'>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+        </section>
+        <section className='TreasureCards'>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+        </section>
+      </section>
+      <section className='PlayerSection'>
+        <section className='ActivatedCards'>ActivatedCards</section>
+        <section className='PlayerDeck'>
+          <article className='card'>card</article>
+        </section>
+        <section className='PlayerHand'>
+          <article className='card'>card</article>
+          <article className='card'>card</article>
+        </section>
+      </section>
     </div>
   );
 }
