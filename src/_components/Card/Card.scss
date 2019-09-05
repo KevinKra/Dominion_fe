@@ -1,0 +1,16 @@
+.card {
+  position: relative;
+  z-index: 2;
+  border: 1px solid red;
+  height: 140px;
+  width: 100px;
+  margin: 0.5rem;
+  background-color: #eee;
+  transition: 0.5s transform cubic-bezier(0.71, 2, 0.68, 0.79);
+}
+
+.card:hover {
+  z-index: 3;
+  cursor: pointer;
+  transform: scale(1.3);
+}
