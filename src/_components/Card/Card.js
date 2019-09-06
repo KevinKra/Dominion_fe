@@ -28,9 +28,7 @@ export default function Card({ name, desc, type, image, cost, tags }) {
       } else if (type[0] === "Treasure") {
         return (
           <article className='card'>
-            <header style={{ position: "relative", backgroundColor: "gold" }}>
-              {name}
-            </header>
+            <header style={{ backgroundColor: "gold" }}>{name}</header>
             {image ? (
               <img
                 src={require(`../../assets/card_images/${image}`)}
@@ -47,9 +45,7 @@ export default function Card({ name, desc, type, image, cost, tags }) {
       } else {
         return (
           <article className='card'>
-            <header style={{ position: "relative", backgroundColor: "lightGreen" }}>
-              {name}
-            </header>
+            <header style={{ backgroundColor: "lightGreen" }}>{name}</header>
             {image ? (
               <img
                 src={require(`../../assets/card_images/${image}`)}
