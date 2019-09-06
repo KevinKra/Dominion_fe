@@ -7,16 +7,17 @@ export function ActionCards(props) {
   return (
     <section className='ActionCards'>
       {props.tableCards
-        .filter(card => {
-          return card.type === "Action";
-        })
+        .filter(card => card.type.includes("Action"))
         .map(card => (
           <Card
             name={card.name}
             desc={card.desc}
+            tags={card.tags}
             type={card.type}
             image={card.image}
             cost={card.cost}
+            id={card.id}
+            key={card.id}
           />
         ))}
     </section>
