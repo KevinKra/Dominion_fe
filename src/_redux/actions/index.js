@@ -1,6 +1,6 @@
-export const updateCurrentCards = cards => {
+export const updateTableCards = cards => {
   return {
-    type: "UPDATE_CURRENT_CARDS",
+    type: "UPDATE_TABLE_CARDS",
     cards
   };
 };

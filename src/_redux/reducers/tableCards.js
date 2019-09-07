@@ -1,6 +1,6 @@
-export const cardsReducer = (state = [], action) => {
+export const tableCards = (state = [], action) => {
   switch (action.type) {
-    case "UPDATE_CURRENT_CARDS":
+    case "UPDATE_TABLE_CARDS":
       return action.cards;
     default:
       return state;
