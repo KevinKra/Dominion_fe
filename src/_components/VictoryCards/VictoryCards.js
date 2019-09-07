@@ -4,24 +4,20 @@ import "./VictoryCards.scss";
 import { connect } from "react-redux";
 
 export function VictoryCards(props) {
-  console.log(props.tableCards);
-  return (
-    <section className='VictoryCards'>
-      {props.tableCards
-        .filter(card => card.category.includes("Victory"))
-        .map(card => (
-          <Card
-            name={card.name}
-            desc={card.desc}
-            category={card.category}
-            image={card.image}
-            cost={card.cost}
-            id={card.id}
-            key={card.id}
-          />
-        ))}
-    </section>
-  );
+  const victoryCards = props.tableCards
+    .filter(card => card.category.includes("Victory"))
+    .map(card => (
+      <Card
+        name={card.name}
+        desc={card.desc}
+        category={card.category}
+        image={card.image}
+        cost={card.cost}
+        id={card.id}
+        key={card.id}
+      />
+    ));
+  return <section className='VictoryCards'>{victoryCards}</section>;
 }
 
 const mapStateToProps = store => ({
