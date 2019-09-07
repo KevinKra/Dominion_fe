@@ -5,6 +5,11 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
   className="ActionCards"
 >
   <Card
+    category={
+      Array [
+        "Action",
+      ]
+    }
     cost={3}
     desc=""
     id={1231}
@@ -17,13 +22,14 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
         "+2 Actions",
       ]
     }
-    type={
-      Array [
-        "Action",
-      ]
-    }
   />
   <Card
+    category={
+      Array [
+        "Action",
+        "Attack",
+      ]
+    }
     cost={4}
     desc="Each other player discards down to 3 cards in his hand."
     id={1391}
@@ -35,14 +41,13 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
         "+2 Gold",
       ]
     }
-    type={
-      Array [
-        "Action",
-        "Attack",
-      ]
-    }
   />
   <Card
+    category={
+      Array [
+        "Action",
+      ]
+    }
     cost={4}
     desc=""
     id={9531}
@@ -54,13 +59,13 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
         "+3 Cards",
       ]
     }
-    type={
+  />
+  <Card
+    category={
       Array [
         "Action",
       ]
     }
-  />
-  <Card
     cost={5}
     desc=""
     id={1532}
@@ -75,13 +80,13 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
         "+1 Gold",
       ]
     }
-    type={
+  />
+  <Card
+    category={
       Array [
         "Action",
       ]
     }
-  />
-  <Card
     cost={5}
     desc="Trash a treasure Card from your hand. Gain a treasure card costing up to 3 treasure more; put it in your hand."
     id={1522}
@@ -89,13 +94,13 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
     key="1522"
     name="Mine"
     tags={Array []}
-    type={
+  />
+  <Card
+    category={
       Array [
         "Action",
       ]
     }
-  />
-  <Card
     cost={4}
     desc="Trash a card from your hand. Gain a card costing up to 2 treasure more than the trashed card."
     id={3333}
@@ -103,13 +108,13 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
     key="3333"
     name="Remodel"
     tags={Array []}
-    type={
+  />
+  <Card
+    category={
       Array [
         "Action",
       ]
     }
-  />
-  <Card
     cost={2}
     desc="Discard any number of cards. +1 Card per card discarded."
     id={9831}
@@ -121,13 +126,14 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
         "+1 Action",
       ]
     }
-    type={
-      Array [
-        "Action",
-      ]
-    }
   />
   <Card
+    category={
+      Array [
+        "Action",
+        "Reaction",
+      ]
+    }
     cost={2}
     desc="When another player plays an Attack card, you may reveal this from your hand. If you do, you are unaffected by that attack."
     id={1938}
@@ -139,14 +145,13 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
         "+2 Cards",
       ]
     }
-    type={
-      Array [
-        "Action",
-        "Reaction",
-      ]
-    }
   />
   <Card
+    category={
+      Array [
+        "Action",
+      ]
+    }
     cost={3}
     desc=""
     id={9781}
@@ -159,13 +164,13 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
         "+2 Gold",
       ]
     }
-    type={
+  />
+  <Card
+    category={
       Array [
         "Action",
       ]
     }
-  />
-  <Card
     cost={3}
     desc="Gain a card costing up to 4 treasure."
     id={1333}
@@ -173,11 +178,6 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
     key="1333"
     name="WorkShop"
     tags={Array []}
-    type={
-      Array [
-        "Action",
-      ]
-    }
   />
 </section>
 `;
