@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableDeck /> should match the snapshot 1`] = `
+<section
+  className="TableDeck"
+>
+  <Connect(VictoryCards) />
+  <Connect(ActionCards) />
+  <Connect(TreasureCards) />
+</section>
+`;

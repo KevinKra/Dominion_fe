@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ActionCards /> should match the snapshot 1`] = `
+<section
+  className="ActionCards"
+>
+  <Card
+    cost={3}
+    desc=""
+    id={1231}
+    image="Village.jpg"
+    key="1231"
+    name="Village"
+    tags={
+      Array [
+        "+1 Card",
+        "+2 Actions",
+      ]
+    }
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+  <Card
+    cost={4}
+    desc="Each other player discards down to 3 cards in his hand."
+    id={1391}
+    image="Militia.jpg"
+    key="1391"
+    name="Militia"
+    tags={
+      Array [
+        "+2 Gold",
+      ]
+    }
+    type={
+      Array [
+        "Action",
+        "Attack",
+      ]
+    }
+  />
+  <Card
+    cost={4}
+    desc=""
+    id={9531}
+    image="Smithy.jpg"
+    key="9531"
+    name="Smithy"
+    tags={
+      Array [
+        "+3 Cards",
+      ]
+    }
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+  <Card
+    cost={5}
+    desc=""
+    id={1532}
+    image="Market.jpg"
+    key="1532"
+    name="Market"
+    tags={
+      Array [
+        "+1 Card",
+        "+1 Action",
+        "+1 Buy",
+        "+1 Gold",
+      ]
+    }
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+  <Card
+    cost={5}
+    desc="Trash a treasure Card from your hand. Gain a treasure card costing up to 3 treasure more; put it in your hand."
+    id={1522}
+    image="Mine.jpg"
+    key="1522"
+    name="Mine"
+    tags={Array []}
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+  <Card
+    cost={4}
+    desc="Trash a card from your hand. Gain a card costing up to 2 treasure more than the trashed card."
+    id={3333}
+    image="Remodel.jpg"
+    key="3333"
+    name="Remodel"
+    tags={Array []}
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+  <Card
+    cost={2}
+    desc="Discard any number of cards. +1 Card per card discarded."
+    id={9831}
+    image="Cellar.jpg"
+    key="9831"
+    name="Cellar"
+    tags={
+      Array [
+        "+1 Action",
+      ]
+    }
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+  <Card
+    cost={2}
+    desc="When another player plays an Attack card, you may reveal this from your hand. If you do, you are unaffected by that attack."
+    id={1938}
+    image="Moat.jpg"
+    key="1938"
+    name="Moat"
+    tags={
+      Array [
+        "+2 Cards",
+      ]
+    }
+    type={
+      Array [
+        "Action",
+        "Reaction",
+      ]
+    }
+  />
+  <Card
+    cost={3}
+    desc=""
+    id={9781}
+    image="WoodCutter.jpg"
+    key="9781"
+    name="WoodCutter"
+    tags={
+      Array [
+        "+1 Buy",
+        "+2 Gold",
+      ]
+    }
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+  <Card
+    cost={3}
+    desc="Gain a card costing up to 4 treasure."
+    id={1333}
+    image="Workshop.jpg"
+    key="1333"
+    name="WorkShop"
+    tags={Array []}
+    type={
+      Array [
+        "Action",
+      ]
+    }
+  />
+</section>
+`;
