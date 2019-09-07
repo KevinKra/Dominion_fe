@@ -4,15 +4,16 @@ import "./VictoryCards.scss";
 import { connect } from "react-redux";
 
 export function VictoryCards(props) {
+  console.log(props.tableCards);
   return (
     <section className='VictoryCards'>
       {props.tableCards
-        .filter(card => card.type.includes("Victory"))
+        .filter(card => card.category.includes("Victory"))
         .map(card => (
           <Card
             name={card.name}
             desc={card.desc}
-            type={card.type}
+            category={card.category}
             image={card.image}
             cost={card.cost}
             id={card.id}
