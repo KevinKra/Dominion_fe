@@ -1,10 +1,10 @@
 import React from "react";
 import "./Card.scss";
 
-export default function Card({ name, desc, type, image, cost, tags }) {
+export default function Card({ name, desc, category, image, cost, tags }) {
   const handleRender = () => {
-    if (type !== undefined) {
-      if (type[0] === "Action") {
+    if (category !== undefined) {
+      if (category[0] === "Action") {
         return (
           <article className='card'>
             <header style={{ backgroundColor: "silver" }}>{name}</header>
@@ -21,11 +21,11 @@ export default function Card({ name, desc, type, image, cost, tags }) {
             </div>
             <footer>
               <p>{cost}</p>
-              <p>{type}</p>
+              <p>{category}</p>
             </footer>
           </article>
         );
-      } else if (type[0] === "Treasure") {
+      } else if (category[0] === "Treasure") {
         return (
           <article className='card'>
             <header style={{ backgroundColor: "gold" }}>{name}</header>
@@ -38,7 +38,7 @@ export default function Card({ name, desc, type, image, cost, tags }) {
             ) : null}
             <footer>
               <p>{cost}</p>
-              <p>{type}</p>
+              <p>{category}</p>
             </footer>
           </article>
         );
@@ -55,7 +55,7 @@ export default function Card({ name, desc, type, image, cost, tags }) {
             ) : null}
             <footer>
               <p>{cost}</p>
-              <p>{type}</p>
+              <p>{category}</p>
             </footer>
           </article>
         );
@@ -65,5 +65,6 @@ export default function Card({ name, desc, type, image, cost, tags }) {
     }
   };
 
-  return handleRender();
+  const cardType = handleRender();
+  return cardType;
 }

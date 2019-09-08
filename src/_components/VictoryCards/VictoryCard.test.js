@@ -2,7 +2,7 @@ import React from "react";
 import { VictoryCards } from "./VictoryCards";
 import { shallow } from "enzyme";
 import { shallowToJson } from "enzyme-to-json";
-import { cards } from "../../mockData/mockCards";
+import { cards } from "../../mockData";
 
 describe("<Victory />", () => {
   let wrapper;

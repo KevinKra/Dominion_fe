@@ -5,40 +5,40 @@ exports[`<Victory /> should match the snapshot 1`] = `
   className="VictoryCards"
 >
   <Card
+    category={
+      Array [
+        "Victory",
+      ]
+    }
     cost={2}
     id={6123}
     image="Estate.jpg"
     key="6123"
     name="Estate"
-    type={
+  />
+  <Card
+    category={
       Array [
         "Victory",
       ]
     }
-  />
-  <Card
     cost={5}
     id={1344}
     image="Duchy.jpg"
     key="1344"
     name="Duchy"
-    type={
+  />
+  <Card
+    category={
       Array [
         "Victory",
       ]
     }
-  />
-  <Card
     cost={8}
     id={3781}
     image="Province.jpg"
     key="3781"
     name="Province"
-    type={
-      Array [
-        "Victory",
-      ]
-    }
   />
 </section>
 `;

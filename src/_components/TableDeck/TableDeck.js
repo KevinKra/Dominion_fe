@@ -3,7 +3,7 @@ import "./TableDeck.scss";
 import TreasureCards from "../TreasureCards/TreasureCards";
 import VictoryCards from "../VictoryCards/VictoryCards";
 import ActionCards from "../ActionCards/ActionCards";
-import { cards } from "../../mockData/mockCards";
+import { cards } from "../../mockData";
 import { connect } from "react-redux";
 import * as actions from "../../_redux/actions/index";
 

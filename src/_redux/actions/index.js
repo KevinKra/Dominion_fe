@@ -4,3 +4,24 @@ export const updateTableCards = cards => {
     cards
   };
 };
+
+export const updatePlayerHand = playerHand => {
+  return {
+    type: "UPDATE_PLAYER_HAND",
+    playerHand
+  };
+};
+
+export const updatePlayerDeck = playerDeck => {
+  return {
+    type: "UPDATE_PLAYER_DECK",
+    playerDeck
+  };
+};
+
+export const updateDiscardPile = discardPile => {
+  return {
+    type: "UPDATE_DISCARD_PILE",
+    discardPile
+  };
+};

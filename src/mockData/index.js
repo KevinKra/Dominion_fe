@@ -1,9 +1,40 @@
+export const mockActionCard = {
+  name: "Village",
+  tags: ["+1 Card", "+2 Actions"],
+  desc: "",
+  category: ["Action"],
+  cost: 3,
+  spendingPower: 0,
+  actionsProvided: 2,
+  cardsToDraw: 1,
+  image: "Village.jpg",
+  id: 1231
+};
+
+export const mockTreasureCard = {
+  name: "Copper",
+  category: ["Treasure"],
+  cost: 0,
+  image: "Copper.jpg",
+  spendingPower: 1,
+  id: 1113
+};
+
+export const mockVictoryCard = {
+  name: "Province",
+  category: ["Victory"],
+  cost: 8,
+  image: "Province.jpg",
+  victoryPoints: 6,
+  id: 3781
+};
+
 export const cards = [
   {
     name: "Village",
     tags: ["+1 Card", "+2 Actions"],
     desc: "",
-    type: ["Action"],
+    category: ["Action"],
     cost: 3,
     spendingPower: 0,
     actionsProvided: 2,
@@ -15,7 +46,7 @@ export const cards = [
     name: "Militia",
     tags: ["+2 Gold"],
     desc: "Each other player discards down to 3 cards in his hand.",
-    type: ["Action", "Attack"],
+    category: ["Action", "Attack"],
     cost: 4,
     spendingPower: 2,
     buyingPower: 0,
@@ -28,7 +59,7 @@ export const cards = [
     name: "Smithy",
     tags: ["+3 Cards"],
     desc: "",
-    type: ["Action"],
+    category: ["Action"],
     cost: 4,
     spendingPower: 0,
     buyingPower: 0,
@@ -41,7 +72,7 @@ export const cards = [
     name: "Market",
     tags: ["+1 Card", "+1 Action", "+1 Buy", "+1 Gold"],
     desc: "",
-    type: ["Action"],
+    category: ["Action"],
     cost: 5,
     spendingPower: 1,
     buyingPower: 1,
@@ -55,7 +86,7 @@ export const cards = [
     tags: [],
     desc:
       "Trash a treasure Card from your hand. Gain a treasure card costing up to 3 treasure more; put it in your hand.",
-    type: ["Action"],
+    category: ["Action"],
     cost: 5,
     spendingPower: 0,
     buyingPower: 0,
@@ -69,7 +100,7 @@ export const cards = [
     tags: [],
     desc:
       "Trash a card from your hand. Gain a card costing up to 2 treasure more than the trashed card.",
-    type: ["Action"],
+    category: ["Action"],
     cost: 4,
     spendingPower: 0,
     buyingPower: 0,
@@ -82,7 +113,7 @@ export const cards = [
     name: "Cellar",
     tags: ["+1 Action"],
     desc: "Discard any number of cards. +1 Card per card discarded.",
-    type: ["Action"],
+    category: ["Action"],
     cost: 2,
     spendingPower: 0,
     buyingPower: 0,
@@ -96,7 +127,7 @@ export const cards = [
     tags: ["+2 Cards"],
     desc:
       "When another player plays an Attack card, you may reveal this from your hand. If you do, you are unaffected by that attack.",
-    type: ["Action", "Reaction"],
+    category: ["Action", "Reaction"],
     cost: 2,
     spendingPower: 0,
     buyingPower: 0,
@@ -109,7 +140,7 @@ export const cards = [
     name: "WoodCutter",
     tags: ["+1 Buy", "+2 Gold"],
     desc: "",
-    type: ["Action"],
+    category: ["Action"],
     cost: 3,
     spendingPower: 2,
     buyingPower: 1,
@@ -122,7 +153,7 @@ export const cards = [
     name: "WorkShop",
     tags: [],
     desc: "Gain a card costing up to 4 treasure.",
-    type: ["Action"],
+    category: ["Action"],
     cost: 3,
     spendingPower: 0,
     buyingPower: 0,
@@ -133,7 +164,7 @@ export const cards = [
   },
   {
     name: "Gold",
-    type: ["Treasure"],
+    category: ["Treasure"],
     cost: 6,
     image: "Gold.jpg",
     spendingPower: 3,
@@ -141,7 +172,7 @@ export const cards = [
   },
   {
     name: "Silver",
-    type: ["Treasure"],
+    category: ["Treasure"],
     cost: 3,
     image: "Silver.jpg",
     spendingPower: 2,
@@ -149,7 +180,7 @@ export const cards = [
   },
   {
     name: "Copper",
-    type: ["Treasure"],
+    category: ["Treasure"],
     cost: 0,
     image: "Copper.jpg",
     spendingPower: 1,
@@ -157,7 +188,7 @@ export const cards = [
   },
   {
     name: "Estate",
-    type: ["Victory"],
+    category: ["Victory"],
     cost: 2,
     image: "Estate.jpg",
     victoryPoints: 1,
@@ -165,7 +196,7 @@ export const cards = [
   },
   {
     name: "Duchy",
-    type: ["Victory"],
+    category: ["Victory"],
     cost: 5,
     image: "Duchy.jpg",
     victoryPoints: 3,
@@ -173,7 +204,7 @@ export const cards = [
   },
   {
     name: "Province",
-    type: ["Victory"],
+    category: ["Victory"],
     cost: 8,
     image: "Province.jpg",
     victoryPoints: 6,
