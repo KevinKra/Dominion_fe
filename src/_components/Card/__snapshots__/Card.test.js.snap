@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> should match the loading snapshot 1`] = `
+<p>
+  Loading
+</p>
+`;
+
+exports[`<Card /> should match the mockActionCard snapshot 1`] = `
+<article
+  className="card"
+>
+  <header
+    style={
+      Object {
+        "backgroundColor": "lightGreen",
+      }
+    }
+  >
+    Village
+  </header>
+  <img
+    alt="Village"
+    src="Village.jpg"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <footer>
+    <p>
+      3
+    </p>
+    <p>
+      Action
+    </p>
+  </footer>
+</article>
+`;
+
+exports[`<Card /> should match the mockTreasureCard snapshot 1`] = `
+<article
+  className="card"
+>
+  <header
+    style={
+      Object {
+        "backgroundColor": "lightGreen",
+      }
+    }
+  >
+    Copper
+  </header>
+  <img
+    alt="Copper"
+    src="Copper.jpg"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <footer>
+    <p>
+      0
+    </p>
+    <p>
+      Treasure
+    </p>
+  </footer>
+</article>
+`;
+
+exports[`<Card /> should match the mockVictoryCard snapshot 1`] = `
+<article
+  className="card"
+>
+  <header
+    style={
+      Object {
+        "backgroundColor": "lightGreen",
+      }
+    }
+  >
+    Province
+  </header>
+  <img
+    alt="Province"
+    src="Province.jpg"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <footer>
+    <p>
+      8
+    </p>
+    <p>
+      Victory
+    </p>
+  </footer>
+</article>
+`;

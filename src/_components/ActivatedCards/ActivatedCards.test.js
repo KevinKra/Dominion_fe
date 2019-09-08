@@ -1,10 +1,10 @@
 import React from "react";
-import App from "./App";
+import ActivatedCards from "./ActivatedCards";
 import { shallow } from "enzyme";
 import { shallowToJson } from "enzyme-to-json";
 
-describe("<App />", () => {
-  let wrapper = shallow(<App />);
+describe("<ActivatedCards />", () => {
+  let wrapper = shallow(<ActivatedCards />);
   it("should match the snapshot", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });

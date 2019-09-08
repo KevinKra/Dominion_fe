@@ -65,5 +65,6 @@ export default function Card({ name, desc, category, image, cost, tags }) {
     }
   };
 
-  return handleRender();
+  const cardType = handleRender();
+  return cardType;
 }

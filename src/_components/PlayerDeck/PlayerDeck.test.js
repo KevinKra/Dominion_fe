@@ -1,10 +1,13 @@
 import React from "react";
-import App from "./App";
+import PlayerDeck from "./PlayerDeck";
 import { shallow } from "enzyme";
 import { shallowToJson } from "enzyme-to-json";
 
-describe("<App />", () => {
-  let wrapper = shallow(<App />);
+describe("<PlayerDeck />", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<PlayerDeck />);
+  });
   it("should match the snapshot", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
