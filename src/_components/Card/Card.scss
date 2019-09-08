@@ -24,7 +24,7 @@
     font-weight: 600;
   }
   img {
-    height: 90px;
+    height: 45%;
     width: 100%;
   }
   p {
@@ -52,5 +52,18 @@
     z-index: 3;
     cursor: pointer;
     transform: scale(1.2);
+  }
+}
+
+@media screen and (min-width: 1650px) {
+  .card {
+    height: 215px;
+    width: 150px;
+    p {
+      font-size: 10px;
+    }
+    header {
+      font-size: 14px;
+    }
   }
 }
