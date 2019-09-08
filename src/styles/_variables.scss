@@ -1,0 +1,13 @@
+$color1: rgba(237, 238, 192, 1);
+$color2: rgba(67, 62, 14, 1);
+$color3: rgba(124, 144, 130, 1);
+$color4: rgba(167, 162, 132, 1);
+$color5: rgba(208, 200, 142, 1);
+
+//global
+.side-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: $color3;
+}
