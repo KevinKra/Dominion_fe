@@ -7,21 +7,22 @@ export const updateTableCards = cards => {
 
 export const updatePlayerHand = playerHand => {
   return {
-    type: "UPDATE_PLAYER_HAND",
-    playerHand
+
+export const beginTurn = () => {
+  return {
+    type: "START_TURN"
   };
 };
 
-export const updatePlayerDeck = playerDeck => {
+export const endTurn = () => {
   return {
-    type: "UPDATE_PLAYER_DECK",
-    playerDeck
+    type: "END_TURN"
   };
 };
 
-export const updateDiscardPile = discardPile => {
+export const cycleToPhase = phase => {
   return {
-    type: "UPDATE_DISCARD_PILE",
-    discardPile
+    type: "CYCLE_PHASE",
+    phase
   };
 };
