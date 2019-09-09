@@ -5,23 +5,30 @@ export const updateTableCards = cards => {
   };
 };
 
-export const updatePlayerHand = playerHand => {
+export const updatePlayerCards = (playerDeck, playerHand, discardPile) => {
   return {
-    type: "UPDATE_PLAYER_HAND",
-    playerHand
-  };
-};
-
-export const updatePlayerDeck = playerDeck => {
-  return {
-    type: "UPDATE_PLAYER_DECK",
-    playerDeck
-  };
-};
-
-export const updateDiscardPile = discardPile => {
-  return {
-    type: "UPDATE_DISCARD_PILE",
+    type: "UPDATE_PLAYER_CARDS",
+    playerDeck,
+    playerHand,
     discardPile
+  };
+};
+
+export const beginTurn = () => {
+  return {
+    type: "START_TURN"
+  };
+};
+
+export const endTurn = () => {
+  return {
+    type: "END_TURN"
+  };
+};
+
+export const cycleToPhase = phase => {
+  return {
+    type: "CYCLE_PHASE",
+    phase
   };
 };

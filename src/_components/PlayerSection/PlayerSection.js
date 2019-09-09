@@ -1,15 +1,45 @@
-import React from "react";
-import "./PlayerSection.scss";
+import { connect } from "react-redux";
+import React, { Component } from "react";
+import * as actions from "../../_redux/actions";
+import ActivatedCards from "../ActivatedCards/ActivatedCards";
 import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
-import ActivatedCards from "../ActivatedCards/ActivatedCards";
 
-export default function PlayerSection() {
-  return (
-    <section className='PlayerSection'>
-      <ActivatedCards />
-      <PlayerDeck />
-      <PlayerHand />
-    </section>
-  );
+import "./PlayerSection.scss";
+
+export class PlayerSection extends Component {
+  componentDidMount = () => {
+    //fetch request for player state;
+    // updatePlayerCards(deck, hand, discardPile)
+  };
+
+  render() {
+    return (
+      <section className="PlayerSection">
+        <ActivatedCards />
+        <PlayerDeck />
+        <PlayerHand />
+      </section>
+    );
+  }
 }
+
+export const mapStateToProps = state => ({
+  playerTurn: state.playerTurn,
+  playerDeck: state.playerDeck,
+  playerHand: state.playerHand,
+  discardPile: state.discardPile
+});
+
+export const mapDispatchToProps = dispatch => ({
+  startTurn: () => dispatch(actions.beginTurn()),
+  cycleToPhase: phase => dispatch(actions.cycleToPhase(phase)),
+  endTurn: () => dispatch(actions.endTurn()),
+  updatePlayerCards: (deck, hand, discardPile) =>
+    dispatch(actions.updatePlayerCards(deck, hand, discardPile))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PlayerSection);
