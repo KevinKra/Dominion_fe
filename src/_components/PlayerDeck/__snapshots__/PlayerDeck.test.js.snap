@@ -4,13 +4,6 @@ exports[`<PlayerDeck /> should match the snapshot 1`] = `
 <section
   className="PlayerDeck"
 >
-  <Card
-    category="Treasure"
-    cost={0}
-    id={1113}
-    image="Copper.jpg"
-    key="1113"
-    name="Copper"
-  />
+  <CardBack />
 </section>
 `;
