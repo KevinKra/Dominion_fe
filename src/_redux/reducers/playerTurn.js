@@ -1,19 +1,17 @@
-export const playerTurn = (state = {}, action) => {
+export const playerTurn = (
+  state = { isActive: false, phase: "Standby" },
+  action
+) => {
   switch (action.type) {
     case "START_TURN":
       return {
         isActive: true,
         phase: "Action"
       };
-    case "ENTER_BUY_PHASE":
+    case "CYCLE_PHASE":
       return {
         isActive: true,
-        phase: "Buy"
-      };
-    case "ENTER_CLEANUP_PHASE":
-      return {
-        isActive: true,
-        phase: "Cleanup"
+        phase: action.phase
       };
     case "END_TURN":
       return {
