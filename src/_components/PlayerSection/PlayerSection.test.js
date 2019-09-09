@@ -1,5 +1,5 @@
 import React from "react";
-import PlayerSection from "./PlayerSection";
+import { PlayerSection } from "./PlayerSection";
 import { shallow } from "enzyme";
 import { shallowToJson } from "enzyme-to-json";
 

@@ -5,6 +5,6 @@ exports[`<App /> should match the snapshot 1`] = `
   className="App"
 >
   <Connect(TableDeck) />
-  <PlayerSection />
+  <Connect(PlayerSection) />
 </div>
 `;
