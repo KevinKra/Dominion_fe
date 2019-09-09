@@ -5,8 +5,14 @@ export const updateTableCards = cards => {
   };
 };
 
-export const updatePlayerHand = playerHand => {
+export const updatePlayerCards = (playerDeck, playerHand, discardPile) => {
   return {
+    type: "UPDATE_PLAYER_CARDS",
+    playerDeck,
+    playerHand,
+    discardPile
+  };
+};
 
 export const beginTurn = () => {
   return {
