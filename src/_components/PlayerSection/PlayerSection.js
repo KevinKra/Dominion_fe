@@ -6,6 +6,7 @@ import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
 
 import "./PlayerSection.scss";
+import DiscardPile from "../DiscardPile/DiscardPile";
 
 export class PlayerSection extends Component {
   componentDidMount = () => {
@@ -19,6 +20,7 @@ export class PlayerSection extends Component {
         <ActivatedCards />
         <PlayerDeck />
         <PlayerHand />
+        <DiscardPile />
       </section>
     );
   }
