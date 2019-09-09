@@ -2,7 +2,7 @@
 
 exports[`<TreasureCard /> should match the snapshot 1`] = `
 <section
-  className="TreasureCards"
+  className="TreasureCards side-shelf"
 >
   <Card
     category={

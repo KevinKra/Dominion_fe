@@ -4,7 +4,46 @@ exports[`<PlayerHand /> should match the snapshot 1`] = `
 <section
   className="PlayerHand"
 >
-  <Card />
-  <Card />
+  <Card
+    category="Action"
+    cost={3}
+    desc=""
+    id={1231}
+    image="Village.jpg"
+    key="1231"
+    name="Village"
+  />
+  <Card
+    category="Treasure"
+    cost={0}
+    id={1113}
+    image="Copper.jpg"
+    key="1113"
+    name="Copper"
+  />
+  <Card
+    category="Victory"
+    cost={8}
+    id={3781}
+    image="Province.jpg"
+    key="3781"
+    name="Province"
+  />
+  <Card
+    category="Treasure"
+    cost={0}
+    id={1113}
+    image="Copper.jpg"
+    key="1113"
+    name="Copper"
+  />
+  <Card
+    category="Treasure"
+    cost={0}
+    id={1113}
+    image="Copper.jpg"
+    key="1113"
+    name="Copper"
+  />
 </section>
 `;
