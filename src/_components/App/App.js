@@ -1,13 +1,14 @@
 import React from "react";
+import Lobby from "../Lobby/Lobby";
+import { Route } from "react-router-dom";
+import GamePage from "../GamePage/GamePage";
 import "./App.css";
-import TableDeck from "../TableDeck/TableDeck";
-import PlayerSection from "../PlayerSection/PlayerSection";
 
 function App() {
   return (
     <div className='App'>
-      <TableDeck />
-      <PlayerSection />
+      <Route exact path='/' component={Lobby} />
+      <Route exact path='/current-game' component={GamePage} />
     </div>
   );
 }
