@@ -46,7 +46,7 @@ describe("actions", () => {
   });
 
   it("should have a type of CYCLE_PHASE", () => {
-    const phase = "Action";
+    const phase = "Cleanup";
     const expectedAction = {
       type: "CYCLE_PHASE",
       phase
