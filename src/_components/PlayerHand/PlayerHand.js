@@ -58,3 +58,5 @@ export class PlayerHand extends Component {
     );
   }
 }
+
+export default PlayerHand;
