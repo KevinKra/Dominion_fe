@@ -89,3 +89,29 @@
     }
   }
 }
+
+@media screen and (min-width: 1750px) {
+  .card {
+    height: 215px;
+    width: 150px;
+    p {
+      font-size: 10px;
+    }
+    header {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .card {
+    height: 170px;
+    width: 115px;
+    p {
+      font-size: 8px;
+    }
+    header {
+      font-size: 10px;
+    }
+  }
+}
