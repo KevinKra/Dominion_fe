@@ -5,17 +5,26 @@ import "./PlayerDeck.scss";
 import CardBack from "../CardBack/CardBack";
 
 export class PlayerDeck extends Component {
+  draw(drawCount = 1) {
+    // this method doesn't need to be this complex, but the draw method for the action cards will be so...
+    // ... this method will be used as a reference
+    const { deck, hand, discard, updatePlayerCards } = this.props;
+    const newDraw = deck.splice(0, drawCount);
+    const newHand = [...hand, newDraw];
+    updatePlayerCards(deck, newHand, discard);
+    console.log("drawing card from draw pile");
+  }
 
   render() {
-  return (
+    return (
       <section
         className="PlayerDeck"
         onClick={drawCount => this.draw(drawCount)}
       >
-      <CardBack />
-    </section>
-  );
-}
+        <CardBack />
+      </section>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
