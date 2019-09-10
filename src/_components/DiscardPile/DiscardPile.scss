@@ -1,17 +1,16 @@
 @import "../../styles/variables";
 
-.PlayerDeck {
+.DiscardPile {
   position: absolute;
   z-index: 1;
   bottom: 15%;
-  left: 2%;
+  right: 2%;
   transition: 0.2s all ease;
   background-color: $color4;
 }
 
 @media screen and (max-width: 1500px) {
-  .PlayerDeck {
-    // width: 50%;
-    transform: translate(115%, 15%);
+  .DiscardPile {
+    transform: translate(-115%, 15%);
   }
 }

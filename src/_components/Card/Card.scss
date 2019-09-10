@@ -60,7 +60,33 @@
     -webkit-box-shadow: 0px -1px 17px -1px rgba(0, 0, 0, 0.45);
     -moz-box-shadow: 0px -1px 17px -1px rgba(0, 0, 0, 0.45);
     box-shadow: 0px -1px 17px -1px rgba(0, 0, 0, 0.45);
-    transform: scale(1.2);
+    transform: scale(1.15);
+  }
+}
+
+@media screen and (min-width: 1750px) {
+  .card {
+    height: 215px;
+    width: 150px;
+    p {
+      font-size: 10px;
+    }
+    header {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .card {
+    height: 170px;
+    width: 115px;
+    p {
+      font-size: 8px;
+    }
+    header {
+      font-size: 10px;
+    }
   }
 }
 
