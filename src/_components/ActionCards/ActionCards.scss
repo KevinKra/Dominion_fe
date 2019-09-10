@@ -1,8 +1,14 @@
+@import "../../styles/_variables.scss";
+
 .ActionCards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
   width: 60%;
-  border: 1px solid blue;
+  min-width: 740px;
+  padding: 1rem;
+  margin: 0.2rem auto;
+  border: 1px solid $color2;
+  border-bottom: 4px solid $color2;
+  background-color: $color3;
 }

@@ -17,7 +17,7 @@ export function VictoryCards(props) {
         key={card.id}
       />
     ));
-  return <section className='VictoryCards'>{victoryCards}</section>;
+  return <section className='VictoryCards side-shelf'>{victoryCards}</section>;
 }
 
 const mapStateToProps = store => ({

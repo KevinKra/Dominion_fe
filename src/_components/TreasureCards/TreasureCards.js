@@ -17,7 +17,7 @@ export function TreasureCards(props) {
         key={card.id}
       />
     ));
-  return <section className='TreasureCards'>{treasureCards}</section>;
+  return <section className='TreasureCards side-shelf'>{treasureCards}</section>;
 }
 
 const mapStateToProps = store => ({

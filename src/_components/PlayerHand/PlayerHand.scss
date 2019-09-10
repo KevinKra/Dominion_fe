@@ -1,7 +1,18 @@
+@import "../../styles/_variables.scss";
+
 .PlayerHand {
   display: flex;
   justify-content: center;
   border: 1px solid blue;
-  width: 90%;
-  height: 160px;
+  .card:hover {
+    transition: 0.8s transform ease;
+    transform: translateY(-60%);
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .PlayerHand {
+    // width: 50%;
+    transform: translateY(60%);
+  }
 }

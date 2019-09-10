@@ -3,5 +3,6 @@
   flex-direction: column;
   height: 100vh;
   min-width: 100vh;
+  overflow: hidden;
   border: 1px solid red;
 }
