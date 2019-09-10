@@ -4,9 +4,8 @@ import * as actions from "../../_redux/actions";
 import ActivatedCards from "../ActivatedCards/ActivatedCards";
 import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
-
-import "./PlayerSection.scss";
 import DiscardPile from "../DiscardPile/DiscardPile";
+import "./PlayerSection.scss";
 
 export class PlayerSection extends Component {
   componentDidMount = () => {
