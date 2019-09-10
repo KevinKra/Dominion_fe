@@ -5,8 +5,8 @@ exports[`<PlayerSection /> should match the snapshot 1`] = `
   className="PlayerSection"
 >
   <ActivatedCards />
-  <PlayerDeck />
-  <PlayerHand />
+  <Connect(PlayerDeck) />
+  <Component />
   <DiscardPile />
 </section>
 `;

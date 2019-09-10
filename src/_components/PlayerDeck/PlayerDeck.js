@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Connect } from "react-redux";
+import { connect } from "react-redux";
 import * as actions from "../../_redux/actions";
 import "./PlayerDeck.scss";
 import CardBack from "../CardBack/CardBack";
@@ -38,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.updatePlayerCards(deck, hand, discard))
 });
 
-export default Connect(mapStateToProps)(PlayerDeck);
+export default connect(mapStateToProps)(PlayerDeck);

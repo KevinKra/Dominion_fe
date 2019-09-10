@@ -1,4 +1,4 @@
-import { Connect } from "react-redux";
+import { connect } from "react-redux";
 import React, { Component } from "react";
 import * as actions from "../../_redux/actions";
 import ActivatedCards from "../ActivatedCards/ActivatedCards";
@@ -41,4 +41,7 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(actions.updatePlayerCards(deck, hand, discardPile))
 });
 
-export default Connect(mapStateToProps, mapDispatchToProps)(PlayerSection);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PlayerSection);
