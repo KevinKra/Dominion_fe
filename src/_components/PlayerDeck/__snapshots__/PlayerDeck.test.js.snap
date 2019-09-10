@@ -3,6 +3,7 @@
 exports[`<PlayerDeck /> should match the snapshot 1`] = `
 <section
   className="PlayerDeck"
+  onClick={[Function]}
 >
   <CardBack />
 </section>

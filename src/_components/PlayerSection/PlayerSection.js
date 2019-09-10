@@ -15,7 +15,7 @@ export class PlayerSection extends Component {
 
   render() {
     return (
-      <section className='PlayerSection'>
+      <section className="PlayerSection">
         <ActivatedCards />
         <PlayerDeck />
         <PlayerHand />

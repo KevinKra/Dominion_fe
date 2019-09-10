@@ -1,5 +1,5 @@
 import React from "react";
-import PlayerDeck from "./PlayerDeck";
+import { PlayerDeck } from "./PlayerDeck";
 import { shallow } from "enzyme";
 import { shallowToJson } from "enzyme-to-json";
 
