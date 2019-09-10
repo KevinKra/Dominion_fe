@@ -1,4 +1,4 @@
-export const joinLobby = async username => {
+export const createLobby = async username => {
   const url = "http://localhost:3000";
   const path = "/api/v1/games";
   const options = {
@@ -12,6 +12,7 @@ export const joinLobby = async username => {
       throw new Error("Failed to join lobby.");
     }
     const playerToken = await response.json();
+    console.log(playerToken);
     return playerToken;
   } catch (error) {
     throw Error(error.message);
