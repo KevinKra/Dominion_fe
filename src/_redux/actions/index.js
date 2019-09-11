@@ -41,3 +41,17 @@ export const initiatePlayer = (gameID, playerID, playerName) => {
     playerName
   };
 };
+
+export const addTreasure = increase => {
+  return {
+    type: "ADD_TREASURE",
+    increase
+  };
+};
+
+export const spendTreasure = decrease => {
+  return {
+    type: "SPEND_TREASURE",
+    decrease
+  };
+};
