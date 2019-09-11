@@ -1,0 +1,69 @@
+.Lobby {
+  display: flex;
+  flex-direction: column;
+  .start-section {
+    display: flex;
+    height: 100vh;
+  }
+  .game-options {
+    text-align: center;
+    border: 1px solid red;
+    width: 90%;
+  }
+  .start-option {
+    margin: 0 auto;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.splash-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/card_images/dieppe-castle.jpg");
+  background-size: cover;
+}
+.splash-text {
+  font-family: "Germania One", cursive;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  box-shadow: 2px 2px 15px black;
+  background-color: white;
+  border-top: 1px dashed black;
+  border-bottom: 1px dashed black;
+  h1 {
+    font-size: 48px;
+    margin: 0;
+  }
+  button {
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    transition: 0.49s cubic-bezier(0.4, 2.42, 0.29, -0.04);
+    &:active {
+      background-color: white;
+      color: black;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.lobby-image {
+  background-image: url("../../assets/card_images/brunhildes-castle.jpg");
+  background-size: cover;
+  height: 100vh;
+  width: 60%;
+}
