@@ -10,7 +10,7 @@ import "./TableDeck.scss";
 export class TableDeck extends Component {
   componentDidMount() {
     //Update this for fetching from an endpoint
-    this.props.updateTableCards(cards);
+    this.props.updateTableCards(this.props.tableCards);
   }
   render() {
     return (
@@ -23,11 +23,15 @@ export class TableDeck extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  tableCards: state.tableCards
+});
+
 const mapDispatchToProps = dispatch => ({
   updateTableCards: cards => dispatch(actions.updateTableCards(cards))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(TableDeck);
