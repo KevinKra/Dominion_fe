@@ -42,7 +42,7 @@ export const joinLobby = async (username, gameID) => {
 
 export const updateGameState = async gameID => {
   const url = "http://localhost:3000";
-  const path = `api/v1/game_state/${gameID}`;
+  const path = `/api/v1/game_state/${gameID}`;
   try {
     const response = await fetch(url + path);
     if (!response.ok) {
