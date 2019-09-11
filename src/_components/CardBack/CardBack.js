@@ -5,7 +5,11 @@ import "../../assets/card_images/cardBack.jpg";
 export default function CardBack() {
   return (
     <article className='card'>
-      <img src={require(`../../assets/card_images/cardBack.jpg`)} style={{ flex: 1 }} />
+      <img
+        src={require(`../../assets/card_images/cardBack.jpg`)}
+        alt='card decoration'
+        style={{ flex: 1 }}
+      />
     </article>
   );
 }
