@@ -4,7 +4,7 @@ import "./TreasureCards.scss";
 import Card from "../Card/Card";
 import { connect } from "react-redux";
 
-export class TreasureCards {
+export class TreasureCards extends Component {
   render() {
     const treasureCards = this.props.tableCards
       .filter(card => card.category.includes("Treasure"))
