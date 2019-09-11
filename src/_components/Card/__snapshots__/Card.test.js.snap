@@ -9,6 +9,7 @@ exports[`<Card /> should match the loading snapshot 1`] = `
 exports[`<Card /> should match the mockActionCard snapshot 1`] = `
 <article
   className="card"
+  id={1231}
 >
   <header
     style={
@@ -19,15 +20,6 @@ exports[`<Card /> should match the mockActionCard snapshot 1`] = `
   >
     Village
   </header>
-  <img
-    alt="Village"
-    src="Village.jpg"
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  />
   <footer>
     <p>
       3
@@ -42,6 +34,7 @@ exports[`<Card /> should match the mockActionCard snapshot 1`] = `
 exports[`<Card /> should match the mockTreasureCard snapshot 1`] = `
 <article
   className="card"
+  id={1113}
 >
   <header
     style={
@@ -52,15 +45,6 @@ exports[`<Card /> should match the mockTreasureCard snapshot 1`] = `
   >
     Copper
   </header>
-  <img
-    alt="Copper"
-    src="Copper.jpg"
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  />
   <footer>
     <p>
       0
@@ -75,6 +59,7 @@ exports[`<Card /> should match the mockTreasureCard snapshot 1`] = `
 exports[`<Card /> should match the mockVictoryCard snapshot 1`] = `
 <article
   className="card"
+  id={3781}
 >
   <header
     style={
@@ -85,15 +70,6 @@ exports[`<Card /> should match the mockVictoryCard snapshot 1`] = `
   >
     Province
   </header>
-  <img
-    alt="Province"
-    src="Province.jpg"
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  />
   <footer>
     <p>
       8

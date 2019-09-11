@@ -4,9 +4,9 @@ exports[`<PlayerSection /> should match the snapshot 1`] = `
 <section
   className="PlayerSection"
 >
-  <ActivatedCards />
+  <Connect(ActivatedCards) />
   <Connect(PlayerDeck) />
-  <PlayerHand />
+  <Connect(PlayerHand) />
   <DiscardPile />
 </section>
 `;
