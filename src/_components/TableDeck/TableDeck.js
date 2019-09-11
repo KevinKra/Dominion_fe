@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./TableDeck.scss";
 import TreasureCards from "../TreasureCards/TreasureCards";
 import VictoryCards from "../VictoryCards/VictoryCards";
 import ActionCards from "../ActionCards/ActionCards";
 import { cards } from "../../mockData";
 import { connect } from "react-redux";
 import * as actions from "../../_redux/actions/index";
+import "./TableDeck.scss";
 
 export class TableDeck extends Component {
   componentDidMount() {
