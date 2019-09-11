@@ -25,14 +25,15 @@ export class PlayerSection extends Component {
   requestPlayerTurn = async () => {
     const gameState = await updateGameState(this.props.gameID);
     if (gameState.tableDeck.length === 0) {
-      console.log(gameState);
       return console.log("Waiting for game to start.");
     }
     if (gameState.activePlayerId === this.props.playerID) {
+      //active player
       console.log("It's your turn, turnInterval turned off. Please complete your turn.");
       clearInterval(this.turnInterval);
       this.updatePlayerData();
     } else {
+      //waiting player
       console.log("Not your turn, continuing the interval check the turn");
       this.updatePlayerData();
     }
