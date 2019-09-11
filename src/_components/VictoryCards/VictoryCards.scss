@@ -1,13 +1,14 @@
 @import "../../styles/_variables.scss";
 
 .VictoryCards {
+  margin-right: 1rem;
 }
 
 @media screen and (max-width: 1500px) {
   .VictoryCards {
     position: absolute;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     border-right: 2px solid $color2;
