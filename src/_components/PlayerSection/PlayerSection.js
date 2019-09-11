@@ -29,10 +29,9 @@ export class PlayerSection extends Component {
     }
     if (gameState.activePlayerId === this.props.playerID) {
       //active player
-      console.log(
-        "It's your turn, turnInterval turned off. Please complete your turn."
-      );
+      console.log("It's your turn, turnInterval turned off. Please complete your turn.");
       clearInterval(this.turnInterval);
+      this.props.startTurn();
       this.updatePlayerData();
     } else {
       //waiting player
@@ -40,6 +39,7 @@ export class PlayerSection extends Component {
       this.updatePlayerData();
     }
     console.log(gameState);
+    this.props.updateTableCards(gameState.tableDeck);
   };
 
   draw = deck => {
@@ -49,10 +49,7 @@ export class PlayerSection extends Component {
 
   updatePlayerData = async () => {
     if (!this.state.dataUpdated) {
-      const playerData = await updatePlayerState(
-        this.props.gameID,
-        this.props.playerID
-      );
+      const playerData = await updatePlayerState(this.props.gameID, this.props.playerID);
       console.log(playerData);
       const drawnCards = this.draw(playerData.deck);
       this.props.updatePlayerCards(
@@ -74,7 +71,7 @@ export class PlayerSection extends Component {
 
   render() {
     return (
-      <section className="PlayerSection">
+      <section className='PlayerSection'>
         <ActivatedCards />
         <PlayerDeck />
         <PlayerHand />
@@ -98,7 +95,8 @@ export const mapDispatchToProps = dispatch => ({
   cycleToPhase: phase => dispatch(actions.cycleToPhase(phase)),
   endTurn: () => dispatch(actions.endTurn()),
   updatePlayerCards: (deck, hand, discardPile) =>
-    dispatch(actions.updatePlayerCards(deck, hand, discardPile))
+    dispatch(actions.updatePlayerCards(deck, hand, discardPile)),
+  updateTableCards: cards => dispatch(actions.updateTableCards(cards))
 });
 
 export default connect(
