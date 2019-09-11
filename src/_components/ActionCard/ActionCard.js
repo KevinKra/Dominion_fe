@@ -1,17 +1,12 @@
 import React from "react";
 // import "./ActionCard.scss";
-import * as actions from "../../_utils/actions";
+import * as actions from "../../_redux/actions";
 import Card from "../Card/Card";
 import { connect } from "react-redux";
 
 export class ActionCard {
   draw = drawCount => {
-    const {
-      updatePlayerCards,
-      playerDeck,
-      playerHand,
-      discardPile
-    } = this.props;
+    const { updatePlayerCards, playerDeck, playerHand, discardPile } = this.props;
     const drawnCards = playerDeck.splice(0, drawCount);
     const newHand = [...playerHand, ...drawnCards];
     updatePlayerCards(playerDeck, newHand, discardPile);
@@ -19,7 +14,7 @@ export class ActionCard {
 
   playActionCard = event => {
     event.preventDefault();
-    console.log(event.target.id);
+    if (!this.props.playerTurn.isActive) return;
     const {
       spendingPower,
       buyingPower,
@@ -50,7 +45,7 @@ export class ActionCard {
     );
     return (
       <section
-        className="ActionCards"
+        className='ActionCard'
         id={card.id}
         onClick={event => this.playActionCard(event)}
       >
@@ -63,14 +58,13 @@ export class ActionCard {
 const mapStateToProps = store => ({
   playerDeck: store.playerDeck,
   playerHand: store.playerHand,
-  discardPile: store.discardPile
+  discardPile: store.discardPile,
+  playerTurn: store.playerTurn
 });
 
 const mapDispatchToProps = dispatch => ({
   applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
-    dispatch(
-      actions.applyActionValues(spendingPower, buyingPower, actionsProvided)
-    ),
+    dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided)),
   updatePlayerCards: (deck, hand, discard) =>
     dispatch(actions.updatePlayerCards(deck, hand, discard)),
   activateCard: card => dispatch(actions.activateCard(card))
@@ -79,4 +73,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ActionCards);
+)(ActionCard);
