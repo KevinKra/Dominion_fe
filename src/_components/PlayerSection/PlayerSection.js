@@ -25,25 +25,41 @@ export class PlayerSection extends Component {
   requestPlayerTurn = async () => {
     const gameState = await updateGameState(this.props.gameID);
     if (gameState.tableDeck.length === 0) {
-      console.log(gameState);
       return console.log("Waiting for game to start.");
     }
     if (gameState.activePlayerId === this.props.playerID) {
-      console.log("It's your turn, turnInterval turned off. Please complete your turn.");
+      //active player
+      console.log(
+        "It's your turn, turnInterval turned off. Please complete your turn."
+      );
       clearInterval(this.turnInterval);
       this.updatePlayerData();
     } else {
+      //waiting player
       console.log("Not your turn, continuing the interval check the turn");
       this.updatePlayerData();
     }
     console.log(gameState);
   };
 
+  draw = deck => {
+    const newHand = deck.splice(0, 5);
+    return { newHand, deck };
+  };
+
   updatePlayerData = async () => {
     if (!this.state.dataUpdated) {
-      const playerData = await updatePlayerState(this.props.gameID, this.props.playerID);
+      const playerData = await updatePlayerState(
+        this.props.gameID,
+        this.props.playerID
+      );
       console.log(playerData);
-      this.props.updatePlayerCards(playerData.deck, null, playerData.discardPile || null);
+      const drawnCards = this.draw(playerData.deck);
+      this.props.updatePlayerCards(
+        drawnCards.deck,
+        drawnCards.newHand,
+        playerData.discardPile || null
+      );
     }
     this.setState({ dataUpdated: true });
   };
@@ -58,7 +74,7 @@ export class PlayerSection extends Component {
 
   render() {
     return (
-      <section className='PlayerSection'>
+      <section className="PlayerSection">
         <ActivatedCards />
         <PlayerDeck />
         <PlayerHand />
