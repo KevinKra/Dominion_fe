@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 export class TreasureCards extends Component {
   render() {
     const treasureCards = this.props.tableCards
-      .filter(card => card.category.includes("Treasure"))
+      .filter(card => card.category.includes("Money"))
       .map(card => (
         <Card
           name={card.name}
@@ -19,9 +19,7 @@ export class TreasureCards extends Component {
           key={card.id}
         />
       ));
-    return (
-      <section className="TreasureCards side-shelf">{treasureCards}</section>
-    );
+    return <section className='TreasureCards side-shelf'>{treasureCards}</section>;
   }
 }
 
