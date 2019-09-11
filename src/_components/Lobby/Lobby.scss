@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .Lobby {
   display: flex;
   flex-direction: column;
@@ -14,30 +16,30 @@
   width: 100vw;
   background-image: url("../../assets/card_images/dieppe-castle.jpg");
   background-size: cover;
-  box-shadow: 1px 1px 15px black;
+  box-shadow: 1px 1px 15px $color2;
 }
 .splash-text {
   font-family: "Germania One", cursive;
   text-align: center;
   padding: 1rem 1.5rem;
-  box-shadow: 2px 2px 15px black;
+  box-shadow: 2px 2px 15px $color2;
   background-color: white;
-  border-top: 1px dashed black;
-  border-bottom: 1px dashed black;
+  border-top: 2px dashed $color3;
+  border-bottom: 1px dashed $color2;
   h1 {
     font-size: 48px;
     margin: 0;
   }
   button {
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid $color2;
     background-color: rgb(24, 24, 24);
     color: white;
     padding: 0.5rem 1.5rem;
     transition: 0.49s cubic-bezier(0.4, 2.42, 0.29, -0.04);
     &:active {
       background-color: white;
-      color: black;
+      color: $color2;
     }
     &:focus {
       outline: none;
@@ -58,11 +60,11 @@
   }
   .start-option {
     margin: 1rem auto;
-    border: 1px solid black;
-    border-top: 1px dashed black;
-    border-bottom: 1px dashed black;
+    border: 1px solid $color2;
+    border-top: 1px dashed $color2;
+    border-bottom: 1px dashed $color2;
     background-color: white;
-    box-shadow: 1px 1px 15px black;
+    box-shadow: 1px 1px 15px $color2;
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -73,8 +75,8 @@
     display: inline-block;
     padding: 2rem 1rem 0.5rem 1rem;
     transform: translateY(-2rem);
-    box-shadow: 1px 1px 15px black;
-    border-bottom: 3px dashed black;
+    box-shadow: 1px 1px 15px $color2;
+    border-bottom: 3px dashed $color3;
   }
   h2 {
     text-decoration: underline;
@@ -92,19 +94,19 @@
     transition: 0.2s ease-in-out;
     &:focus {
       outline: none;
-      border: 1px solid black;
+      border: 1px solid $color2;
     }
   }
   button {
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid $color2;
     background-color: rgb(24, 24, 24);
     color: white;
     padding: 0.5rem 1.5rem;
     transition: 0.49s cubic-bezier(0.4, 2.42, 0.29, -0.04);
     &:active {
       background-color: white;
-      color: black;
+      color: $color2;
     }
     &:focus {
       outline: none;
