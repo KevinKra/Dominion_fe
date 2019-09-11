@@ -55,3 +55,10 @@ export const spendTreasure = decrease => {
     decrease
   };
 };
+
+export const activateCard = card => {
+  return {
+    type: "ACTIVATE_CARD",
+    card
+  };
+};
