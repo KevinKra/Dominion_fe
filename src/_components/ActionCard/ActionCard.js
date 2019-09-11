@@ -15,6 +15,7 @@ export class ActionCard {
   playActionCard = event => {
     event.preventDefault();
     if (!this.props.playerTurn.isActive) return;
+    if (!this.props.playerTurn.phase === "Action") return;
     const {
       spendingPower,
       buyingPower,
