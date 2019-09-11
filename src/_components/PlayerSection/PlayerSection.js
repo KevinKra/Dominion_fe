@@ -9,8 +9,17 @@ import "./PlayerSection.scss";
 
 export class PlayerSection extends Component {
   componentDidMount = () => {
-    //fetch request for player state;
-    // updatePlayerCards(deck, hand, discardPile)
+    this.turnInterval = setInterval(() => this.requestPlayerTurn(), 15000);
+    this.requestPlayerTurn();
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.turnInterval);
+  };
+
+  requestPlayerTurn = () => {
+    // fetch game state
+    console.log("fetching game state...");
   };
 
   render() {
