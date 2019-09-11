@@ -6,12 +6,11 @@ import { createLobby, joinLobby } from "../../_utils/apiCalls";
 export class Lobby extends Component {
   state = {
     username: "",
-    gameId: "",
-    error: ""
+    gameId: ""
   };
 
-  handleChange = event => {
-    const { name, value } = event.target;
+  handleChange = e => {
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
@@ -22,19 +21,11 @@ export class Lobby extends Component {
     try {
       if (format === "create") {
         const hostToken = await createLobby(username);
-        initiatePlayer(
-          hostToken.gameId,
-          hostToken.playerId,
-          hostToken.playerName
-        );
+        initiatePlayer(hostToken.gameId, hostToken.playerId, hostToken.playerName);
       }
       if (format === "join") {
         const memberToken = await joinLobby(username, gameId);
-        initiatePlayer(
-          memberToken.gameId,
-          memberToken.playerId,
-          memberToken.playerName
-        );
+        initiatePlayer(memberToken.gameId, memberToken.playerId, memberToken.playerName);
       }
       this.setState({ error: "" });
       this.props.history.push("/current-game");
@@ -50,30 +41,18 @@ export class Lobby extends Component {
           {this.state.error && <p>{this.state.error}</p>}
           <h2>CREATE A GAME</h2>
           <form onSubmit={event => this.handleSubmit(event, "create")}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              name="username"
-              onChange={e => this.handleChange(e)}
-            />
+            <label htmlFor='username'>Username:</label>
+            <input type='text' name='username' onChange={e => this.handleChange(e)} />
             <button>CREATE GAME</button>
           </form>
         </section>
         <section>
           <h2>JOIN A GAME</h2>
           <form onSubmit={e => this.handleSubmit(e, "join")}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              name="username"
-              onChange={e => this.handleChange(e)}
-            />
-            <label htmlFor="gameId">Game Id:</label>
-            <input
-              type="text"
-              name="gameId"
-              onChange={e => this.handleChange(e)}
-            />
+            <label htmlFor='username'>Username:</label>
+            <input type='text' name='username' onChange={e => this.handleChange(e)} />
+            <label htmlFor='gameId'>Game Id:</label>
+            <input type='text' name='gameId' onChange={e => this.handleChange(e)} />
             <button>JOIN GAME</button>
           </form>
         </section>
