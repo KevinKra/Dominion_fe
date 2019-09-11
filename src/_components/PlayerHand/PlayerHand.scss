@@ -2,8 +2,9 @@
 
 .PlayerHand {
   display: flex;
+  position: relative;
+  z-index: 2;
   justify-content: center;
-  background-color: $color4;
   transform: translateY(60%);
   .card:hover {
     transition: 0.8s transform ease;
