@@ -6,6 +6,7 @@ import { discardPile } from "./discardPile";
 import { playerTurn } from "./playerTurn";
 import { gameID } from "./gameID";
 import { playerID } from "./playerID";
+import { playerName } from "./playerName";
 
 export const rootReducer = combineReducers({
   tableCards,
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
   playerHand,
   discardPile,
   gameID,
-  playerID
+  playerID,
+  playerName
 });
