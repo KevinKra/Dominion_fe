@@ -1,6 +1,6 @@
 export const playerID = (state = null, action) => {
   switch (action.type) {
-    case "LOAD_PLAYER_ID":
+    case "INITIATE_PLAYER":
       return action.playerID;
     default:
       return state;

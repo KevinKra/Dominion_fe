@@ -1,6 +1,6 @@
 export const gameID = (state = null, action) => {
   switch (action.type) {
-    case "LOAD_GAME_ID":
+    case "INITIATE_PLAYER":
       return action.gameID;
     default:
       return state;
