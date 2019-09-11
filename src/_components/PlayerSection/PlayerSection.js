@@ -18,14 +18,22 @@ export class PlayerSection extends Component {
     clearInterval(this.turnInterval);
   };
 
-  requestPlayerTurn = () => {
-    // fetch game state
-    console.log("fetching game state...");
+  requestPlayerTurn = async () => {
+    const gameState = await updateGameState(this.props.gameID);
+    if (gameState.tableDeck.length === 0)
+      return console.log("Waiting for game to start.");
+    if (gameState.activePlayerId === this.props.playerID) {
+      console.log("It's your turn, turnInterval turned off. Please complete your turn.");
+      clearInterval(this.turnInterval);
+    } else {
+      console.log("Not your turn, continuing the interval check the turn");
+    }
+    console.log(gameState);
   };
 
   render() {
     return (
-      <section className="PlayerSection">
+      <section className='PlayerSection'>
         <ActivatedCards />
         <PlayerDeck />
         <PlayerHand />
@@ -39,7 +47,9 @@ export const mapStateToProps = state => ({
   playerTurn: state.playerTurn,
   playerDeck: state.playerDeck,
   playerHand: state.playerHand,
-  discardPile: state.discardPile
+  discardPile: state.discardPile,
+  gameID: state.gameID,
+  playerID: state.playerID
 });
 
 export const mapDispatchToProps = dispatch => ({
