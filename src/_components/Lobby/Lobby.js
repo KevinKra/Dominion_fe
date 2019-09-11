@@ -14,21 +14,6 @@ export class Lobby extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (e, format) => {
-    e.preventDefault();
-    if (format === "create") createLobby(this.state.username);
-    if (format === "join") joinLobby(this.state.username, this.state.gameId);
-    this.props.history.push("/current-game");
-    // Not sure what these were intended for
-    // gameId: "",
-    // error: ""
-  };
-
-  handleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
   handleSubmit = async (event, format) => {
     const { username, gameId } = this.state;
     const { initiatePlayer } = this.props;
