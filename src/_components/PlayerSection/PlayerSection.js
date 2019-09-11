@@ -5,6 +5,7 @@ import ActivatedCards from "../ActivatedCards/ActivatedCards";
 import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
 import DiscardPile from "../DiscardPile/DiscardPile";
+import { updateGameState } from "../../_utils/apiCalls";
 import "./PlayerSection.scss";
 
 export class PlayerSection extends Component {
