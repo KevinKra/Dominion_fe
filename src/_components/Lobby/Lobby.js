@@ -83,6 +83,9 @@ export class Lobby extends Component {
                   <input
                     type="text"
                     name="username"
+                    required
+                    minlength="3"
+                    maxlength="10"
                     autoComplete="off"
                     onChange={e => this.handleChange(e)}
                   />
@@ -95,13 +98,17 @@ export class Lobby extends Component {
                   <label htmlFor="username">Username:</label>
                   <input
                     type="text"
+                    required
                     name="username"
+                    minlength="3"
+                    maxlength="10"
                     autoComplete="off"
                     onChange={e => this.handleChange(e)}
                   />
                   <label htmlFor="gameId">Game Id:</label>
                   <input
-                    type="text"
+                    type="number"
+                    required
                     name="gameId"
                     autoComplete="off"
                     onChange={e => this.handleChange(e)}
