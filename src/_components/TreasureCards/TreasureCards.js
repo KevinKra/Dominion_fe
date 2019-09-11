@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as actions from "../../_redux/actions";
 import "./TreasureCards.scss";
 import Card from "../Card/Card";
 import { connect } from "react-redux";
@@ -29,7 +30,10 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  //
+  addTreasure: value => dispatch(actions.addTreasure(value))
 });
 
-export default connect(mapStateToProps)(TreasureCards);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TreasureCards);
