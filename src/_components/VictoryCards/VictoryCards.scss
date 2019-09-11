@@ -11,7 +11,8 @@
     display: flex;
     flex-direction: column;
     border-right: 2px solid $color2;
-    border-bottom: 2px solid $color2;
+    border-bottom: 5px dashed $color1;
+    box-shadow: 1px -4px 5px $color2;
     padding: 1rem 1.2rem 0.5rem 1.2rem;
   }
 }
