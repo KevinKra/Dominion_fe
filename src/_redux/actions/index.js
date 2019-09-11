@@ -33,16 +33,11 @@ export const cycleToPhase = phase => {
   };
 };
 
-export const loadGameID = gameID => {
+export const initiatePlayer = (gameID, playerID, playerName) => {
   return {
-    type: "LOAD_GAME_ID",
-    gameID
-  };
-};
-
-export const loadPlayerID = playerID => {
-  return {
-    type: "LOAD_PLAYER_ID",
-    playerID
+    type: "INITIATE_PLAYER",
+    gameID,
+    playerID,
+    playerName
   };
 };
