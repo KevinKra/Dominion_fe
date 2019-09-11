@@ -32,3 +32,17 @@ export const cycleToPhase = phase => {
     phase
   };
 };
+
+export const loadGameID = gameID => {
+  return {
+    type: "LOAD_GAME_ID",
+    gameID
+  };
+};
+
+export const loadPlayerID = playerID => {
+  return {
+    type: "LOAD_PLAYER_ID",
+    playerID
+  };
+};
