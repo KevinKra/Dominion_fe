@@ -54,3 +54,18 @@ export const updateGameState = async gameID => {
     throw Error(error.message);
   }
 };
+
+export const updatePlayerState = async (gameID, playerID) => {
+  const url = "http://localhost:3000";
+  const path = `/api/v1/games/${gameID}/players/${playerID}`;
+  try {
+    const response = await fetch(url + path);
+    if (!response.ok) {
+      throw new Error("Failed to update game state.");
+    }
+    const playerState = await response.json();
+    return playerState;
+  } catch (error) {
+    throw Error(error.message);
+  }
+};
