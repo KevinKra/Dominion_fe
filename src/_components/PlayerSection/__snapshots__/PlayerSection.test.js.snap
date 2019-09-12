@@ -8,5 +8,11 @@ exports[`<PlayerSection /> should match the snapshot 1`] = `
   <Connect(PlayerDeck) />
   <Connect(PlayerHand) />
   <DiscardPile />
+  <button
+    className="end-turn"
+    onClick={[Function]}
+  >
+    End Turn
+  </button>
 </section>
 `;

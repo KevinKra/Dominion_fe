@@ -84,3 +84,10 @@ export const useBuy = () => {
     type: "USE_BUY"
   };
 };
+
+export const discardCards = cards => {
+  return {
+    type: "DISCARD_CARDS",
+    cards
+  };
+};

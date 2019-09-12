@@ -33,7 +33,7 @@ export class PlayerSection extends Component {
       clearInterval(this.turnInterval);
 
       this.props.startTurn();
-      this.props.applyActionValues(0, 9, 1);
+      this.props.applyActionValues(0, 1, 1);
       this.updatePlayerData();
     } else {
       //waiting player
@@ -63,6 +63,46 @@ export class PlayerSection extends Component {
     this.setState({ dataUpdated: true });
   };
 
+  cleanUp = () => {
+    const boughtCardIds = this.props.bought;
+    const activatedCardsIds = this.props.activatedCards.map(activatedCard => {
+      return activatedCard.id;
+    });
+    const playerDeckIds = this.props.playerDeck.map(deckCard => {
+      return deckCard.id;
+    });
+    const discardPile = [...boughtCardIds, ...activatedCardsIds];
+    this.props.discardCards(discardPile);
+    this.props.endTurn();
+    this.endTurn(boughtCardIds, discardPile, playerDeckIds);
+  };
+
+  endTurn = async (boughtCardIds, discardPile, playerDeckIds) => {
+    const url = "http://localhost:3000";
+    const path = "/api/v1/endturn";
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        gameId: this.props.gameID,
+        playerId: this.props.playerID,
+        deck: playerDeckIds,
+        bought: boughtCardIds,
+        discard: discardPile
+      })
+    };
+    try {
+      const response = await fetch(url + path, options);
+      if (!response.ok) {
+        throw new Error("Failed to end turn.");
+      }
+      const reply = await response.json();
+      return reply;
+    } catch (error) {
+      throw Error(error.message);
+    }
+  };
+
   //!!! need to reset dataUpdated to false at the start of every turn so players will fetch
   //their data once regardless whether they are active or waiting
   startNewTurn() {
@@ -78,6 +118,9 @@ export class PlayerSection extends Component {
         <PlayerDeck />
         <PlayerHand />
         <DiscardPile />
+        <button className='end-turn' onClick={this.cleanUp}>
+          End Turn
+        </button>
       </section>
     );
   }
@@ -89,7 +132,9 @@ export const mapStateToProps = state => ({
   playerHand: state.playerHand,
   discardPile: state.discardPile,
   gameID: state.gameID,
-  playerID: state.playerID
+  playerID: state.playerID,
+  bought: state.bought,
+  activatedCards: state.activatedCards
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -100,7 +145,8 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(actions.updatePlayerCards(deck, hand, discardPile)),
   updateTableCards: cards => dispatch(actions.updateTableCards(cards)),
   applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
-    dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided))
+    dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided)),
+  discardCards: cards => dispatch(actions.discardCards(cards))
 });
 
 export default connect(
