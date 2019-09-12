@@ -19,12 +19,16 @@ export class TreasureCards extends Component {
           key={card.id}
         />
       ));
-    return <section className='TreasureCards side-shelf'>{treasureCards}</section>;
+    return (
+      <section className='TreasureCards side-shelf' onClick={e => this.props.buyCard(e)}>
+        {treasureCards}
+      </section>
+    );
   }
 }
 
-const mapStateToProps = store => ({
-  tableCards: store.tableCards
+const mapStateToProps = state => ({
+  tableCards: state.tableCards
 });
 
 const mapDispatchToProps = dispatch => ({
