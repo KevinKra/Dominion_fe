@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { ActionCard, mapStateToProps, mapDispatchToProps } from "./ActionCard";
+import * as actions from "../../_redux/actions";
 
 describe("ActionCard", () => {
   let wrapper, instance, props;
@@ -57,5 +58,38 @@ describe("mapStateToProps", () => {
 
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
+  });
+});
+
+describe("mapDispatchToProps", () => {
+  let mockDispatch;
+
+  beforeEach(() => {
+    mockDispatch = jest.fn();
+  });
+
+  it("should call dispatch with spending, buying, and action values when applyActionValues is called", () => {
+    const actionToDispatch = actions.applyActionValues(1, 2, 3);
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.applyActionValues(1, 2, 3);
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it("should call dispatch with deck, hand, and discard when updatePlayerCards is called", () => {
+    const actionToDispatch = actions.updatePlayerCards(
+      [1, 2, 3],
+      [4, 5, 6],
+      []
+    );
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.updatePlayerCards([1, 2, 3], [4, 5, 6], []);
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it("should call dispatch with a card when activateCard is called", () => {
+    const actionToDispatch = actions.activateCard({ id: 1 });
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.activateCard({ id: 1 });
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 });
