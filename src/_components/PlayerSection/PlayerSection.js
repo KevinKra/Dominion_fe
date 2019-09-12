@@ -31,6 +31,7 @@ export class PlayerSection extends Component {
       //active player
       console.log("It's your turn, turnInterval turned off. Please complete your turn.");
       clearInterval(this.turnInterval);
+
       this.props.startTurn();
       this.props.applyActionValues(0, 1, 1);
       this.updatePlayerData();
