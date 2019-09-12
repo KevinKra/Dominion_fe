@@ -108,7 +108,7 @@ export class PlayerSection extends Component {
   };
 
   endTurn = async (boughtCardIds, discardPile, playerDeckIds) => {
-    const url = "https://accession-game.herokuapp.com";
+    const url = "https://accession-game-server.herokuapp.com";
     const path = "/api/v1/endturn";
     const options = {
       method: "POST",
