@@ -6,7 +6,7 @@ import { shallowToJson } from "enzyme-to-json";
 describe("<PlayerSection />", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<PlayerSection />);
+    wrapper = shallow(<PlayerSection playerTurn={true} tableCards={1} />);
   });
   it("should match the snapshot", () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
