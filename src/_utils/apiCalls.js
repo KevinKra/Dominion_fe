@@ -1,5 +1,7 @@
+const url = "https://accession-game-server.herokuapp.com/";
+const localUrl = "https://localhost:3001";
+
 export const createLobby = async username => {
-  const url = "http://localhost:3000";
   const path = "/api/v1/games";
   const options = {
     method: "POST",
@@ -20,7 +22,6 @@ export const createLobby = async username => {
 };
 
 export const joinLobby = async (username, gameID) => {
-  const url = "http://localhost:3000";
   const path = "/api/v1/join_game";
   const options = {
     method: "POST",
@@ -41,7 +42,6 @@ export const joinLobby = async (username, gameID) => {
 };
 
 export const updateGameState = async gameID => {
-  const url = "http://localhost:3000";
   const path = `/api/v1/game_state/${gameID}`;
   try {
     const response = await fetch(url + path);
@@ -56,7 +56,6 @@ export const updateGameState = async gameID => {
 };
 
 export const updatePlayerState = async (gameID, playerID) => {
-  const url = "http://localhost:3000";
   const path = `/api/v1/games/${gameID}/players/${playerID}`;
   try {
     const response = await fetch(url + path);
