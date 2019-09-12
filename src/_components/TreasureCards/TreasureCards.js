@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 export class TreasureCards extends Component {
   render() {
     const treasureCards = this.props.tableCards
-      .filter(card => card.category.includes("Treasure"))
+      .filter(card => card.category.includes("Money"))
       .map(card => (
         <Card
           name={card.name}
@@ -20,13 +20,15 @@ export class TreasureCards extends Component {
         />
       ));
     return (
-      <section className="TreasureCards side-shelf">{treasureCards}</section>
+      <section className='TreasureCards side-shelf' onClick={e => this.props.buyCard(e)}>
+        {treasureCards}
+      </section>
     );
   }
 }
 
-const mapStateToProps = store => ({
-  tableCards: store.tableCards
+const mapStateToProps = state => ({
+  tableCards: state.tableCards
 });
 
 const mapDispatchToProps = dispatch => ({

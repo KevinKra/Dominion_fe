@@ -3,42 +3,6 @@
 exports[`<TreasureCard /> should match the snapshot 1`] = `
 <section
   className="TreasureCards side-shelf"
->
-  <Card
-    category={
-      Array [
-        "Treasure",
-      ]
-    }
-    cost={6}
-    id={1515}
-    image="Gold.jpg"
-    key="1515"
-    name="Gold"
-  />
-  <Card
-    category={
-      Array [
-        "Treasure",
-      ]
-    }
-    cost={3}
-    id={8923}
-    image="Silver.jpg"
-    key="8923"
-    name="Silver"
-  />
-  <Card
-    category={
-      Array [
-        "Treasure",
-      ]
-    }
-    cost={0}
-    id={1113}
-    image="Copper.jpg"
-    key="1113"
-    name="Copper"
-  />
-</section>
+  onClick={[Function]}
+/>
 `;

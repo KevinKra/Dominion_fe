@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import * as actions from "../../_redux/actions";
-// import "./TreasureCard.scss";
 import Card from "../Card/Card";
 import { connect } from "react-redux";
+import "./TreasureCard.scss";
 
 export class TreasureCard extends Component {
-  playTreasure = event => {
-    console.log(event.target.id);
+  playTreasure = e => {
+    e.preventDefault();
+    if (!this.props.playerTurn.isActive) return;
+    this.props.activateCard(this.props.card);
+    this.props.addTreasure(this.props.card.spendingPower);
   };
 
   render() {
@@ -25,8 +28,9 @@ export class TreasureCard extends Component {
 
     return (
       <section
-        className="TreasureCards side-shelf"
-        onClick={event => this.playTreasure(event)}
+        className='TreasureCard'
+        onClick={e => this.playTreasure(e)}
+        key={card.id}
         id={card.id}
       >
         {treasureCard}
@@ -35,9 +39,9 @@ export class TreasureCard extends Component {
   }
 }
 
-// const mapStateToProps = store => ({
-//   tableCards: store.tableCards
-// });
+const mapStateToProps = store => ({
+  playerTurn: store.playerTurn
+});
 
 const mapDispatchToProps = dispatch => ({
   addTreasure: value => dispatch(actions.addTreasure(value)),
@@ -45,6 +49,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
-)(TreasureCards);
+)(TreasureCard);

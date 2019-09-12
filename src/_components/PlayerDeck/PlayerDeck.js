@@ -38,4 +38,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.updatePlayerCards(deck, hand, discard))
 });
 
-export default connect(mapStateToProps)(PlayerDeck);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerDeck);

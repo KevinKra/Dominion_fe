@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 // import "./ActionCard.scss";
-import * as actions from "../../_utils/actions";
+import * as actions from "../../_redux/actions";
 import Card from "../Card/Card";
 import { connect } from "react-redux";
 
-export class ActionCard {
+export class ActionCard extends Component {
   draw = drawCount => {
     const {
       updatePlayerCards,
@@ -19,7 +19,8 @@ export class ActionCard {
 
   playActionCard = event => {
     event.preventDefault();
-    console.log(event.target.id);
+    if (!this.props.playerTurn.isActive) return;
+    if (!this.props.playerTurn.phase === "Action") return;
     const {
       spendingPower,
       buyingPower,
@@ -50,7 +51,7 @@ export class ActionCard {
     );
     return (
       <section
-        className="ActionCards"
+        className="ActionCard"
         id={card.id}
         onClick={event => this.playActionCard(event)}
       >
@@ -60,13 +61,14 @@ export class ActionCard {
   }
 }
 
-const mapStateToProps = store => ({
+export const mapStateToProps = store => ({
   playerDeck: store.playerDeck,
   playerHand: store.playerHand,
-  discardPile: store.discardPile
+  discardPile: store.discardPile,
+  playerTurn: store.playerTurn
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
     dispatch(
       actions.applyActionValues(spendingPower, buyingPower, actionsProvided)
@@ -79,4 +81,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ActionCards);
+)(ActionCard);

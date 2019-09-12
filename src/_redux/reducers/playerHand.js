@@ -4,6 +4,8 @@ export const playerHand = (state = [], action) => {
       return action.playerHand;
     case "ACTIVATE_CARD":
       return state.filter(card => card !== action.card);
+    case "END_TURN":
+      return [];
     default:
       return state;
   }

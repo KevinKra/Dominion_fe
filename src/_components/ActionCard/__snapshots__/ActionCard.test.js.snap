@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionCard should match snapshot 1`] = `
+<section
+  className="ActionCard"
+  id={1}
+  onClick={[Function]}
+>
+  <Card
+    category="cat"
+    cost={0}
+    desc="desc"
+    id={1}
+    image="..link"
+    key="1"
+    name="card"
+    tags={Array []}
+  />
+</section>
+`;

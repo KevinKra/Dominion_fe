@@ -3,5 +3,262 @@
 exports[`<PlayerHand /> should match the snapshot 1`] = `
 <section
   className="PlayerHand"
-/>
+>
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 2,
+        "cardsToDraw": 1,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 3,
+        "desc": "",
+        "id": 1231,
+        "image": "Village.jpg",
+        "name": "Village",
+        "spendingPower": 0,
+        "tags": Array [
+          "+1 Card",
+          "+2 Actions",
+        ],
+      }
+    }
+    key="1231"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 0,
+        "buyingPower": 0,
+        "cardsToDraw": 0,
+        "category": Array [
+          "Action",
+          "Attack",
+        ],
+        "cost": 4,
+        "desc": "Each other player discards down to 3 cards in his hand.",
+        "id": 1391,
+        "image": "Militia.jpg",
+        "name": "Militia",
+        "spendingPower": 2,
+        "tags": Array [
+          "+2 Gold",
+        ],
+      }
+    }
+    key="1391"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 0,
+        "buyingPower": 0,
+        "cardsToDraw": 3,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 4,
+        "desc": "",
+        "id": 9531,
+        "image": "Smithy.jpg",
+        "name": "Smithy",
+        "spendingPower": 0,
+        "tags": Array [
+          "+3 Cards",
+        ],
+      }
+    }
+    key="9531"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 1,
+        "buyingPower": 1,
+        "cardsToDraw": 1,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 5,
+        "desc": "",
+        "id": 1532,
+        "image": "Market.jpg",
+        "name": "Market",
+        "spendingPower": 1,
+        "tags": Array [
+          "+1 Card",
+          "+1 Action",
+          "+1 Buy",
+          "+1 Gold",
+        ],
+      }
+    }
+    key="1532"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 0,
+        "buyingPower": 0,
+        "cardsToDraw": 0,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 5,
+        "desc": "Trash a treasure Card from your hand. Gain a treasure card costing up to 3 treasure more; put it in your hand.",
+        "id": 1522,
+        "image": "Mine.jpg",
+        "name": "Mine",
+        "spendingPower": 0,
+        "tags": Array [],
+      }
+    }
+    key="1522"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 0,
+        "buyingPower": 0,
+        "cardsToDraw": 0,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 4,
+        "desc": "Trash a card from your hand. Gain a card costing up to 2 treasure more than the trashed card.",
+        "id": 3333,
+        "image": "Remodel.jpg",
+        "name": "Remodel",
+        "spendingPower": 0,
+        "tags": Array [],
+      }
+    }
+    key="3333"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 1,
+        "buyingPower": 0,
+        "cardsToDraw": 0,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 2,
+        "desc": "Discard any number of cards. +1 Card per card discarded.",
+        "id": 9831,
+        "image": "Cellar.jpg",
+        "name": "Cellar",
+        "spendingPower": 0,
+        "tags": Array [
+          "+1 Action",
+        ],
+      }
+    }
+    key="9831"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 0,
+        "buyingPower": 0,
+        "cardsToDraw": 2,
+        "category": Array [
+          "Action",
+          "Reaction",
+        ],
+        "cost": 2,
+        "desc": "When another player plays an Attack card, you may reveal this from your hand. If you do, you are unaffected by that attack.",
+        "id": 1938,
+        "image": "Moat.jpg",
+        "name": "Moat",
+        "spendingPower": 0,
+        "tags": Array [
+          "+2 Cards",
+        ],
+      }
+    }
+    key="1938"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 0,
+        "buyingPower": 1,
+        "cardsToDraw": 0,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 3,
+        "desc": "",
+        "id": 9781,
+        "image": "WoodCutter.jpg",
+        "name": "WoodCutter",
+        "spendingPower": 2,
+        "tags": Array [
+          "+1 Buy",
+          "+2 Gold",
+        ],
+      }
+    }
+    key="9781"
+  />
+  <Connect(ActionCard)
+    card={
+      Object {
+        "actionsProvided": 0,
+        "buyingPower": 0,
+        "cardsToDraw": 0,
+        "category": Array [
+          "Action",
+        ],
+        "cost": 3,
+        "desc": "Gain a card costing up to 4 treasure.",
+        "id": 1333,
+        "image": "Workshop.jpg",
+        "name": "WorkShop",
+        "spendingPower": 0,
+        "tags": Array [],
+      }
+    }
+    key="1333"
+  />
+  <Card
+    category={
+      Array [
+        "Victory",
+      ]
+    }
+    cost={2}
+    id={6123}
+    image="Estate.jpg"
+    key="6123"
+    name="Estate"
+  />
+  <Card
+    category={
+      Array [
+        "Victory",
+      ]
+    }
+    cost={5}
+    id={1344}
+    image="Duchy.jpg"
+    key="1344"
+    name="Duchy"
+  />
+  <Card
+    category={
+      Array [
+        "Victory",
+      ]
+    }
+    cost={8}
+    id={3781}
+    image="Province.jpg"
+    key="3781"
+    name="Province"
+  />
+</section>
 `;
