@@ -19,13 +19,13 @@ export function ActionCards(props) {
       />
     ));
   return (
-    <section className='ActionCards' onClick={e => props.buyCard(e)}>
+    <section className="ActionCards" onClick={e => props.buyCard(e)}>
       {actionCards}
     </section>
   );
 }
 
-const mapStateToProps = store => ({
+export const mapStateToProps = store => ({
   tableCards: store.tableCards
 });
 
