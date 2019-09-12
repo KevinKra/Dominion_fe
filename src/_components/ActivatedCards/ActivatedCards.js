@@ -4,8 +4,14 @@ import { connect } from "react-redux";
 import "./ActivatedCards.scss";
 
 export function ActivatedCards(props) {
+  const turnNotifier = props.playerTurn.isActive ? (
+    <p className='turn-notifier'>"Your Turn!"</p>
+  ) : (
+    <p className='turn-notifier'>"Waiting For Opponent"</p>
+  );
   return (
     <section className='ActivatedCards'>
+      {turnNotifier}
       {props.activatedCards.map(card => {
         return (
           <Card
@@ -24,6 +30,7 @@ export function ActivatedCards(props) {
 }
 
 export const mapStateToProps = state => ({
+  playerTurn: state.playerTurn,
   activatedCards: state.activatedCards
 });
 

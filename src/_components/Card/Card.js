@@ -6,11 +6,9 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
     if (category !== undefined) {
       if (category[0] === "Action") {
         return (
-          <article className='card' id={id} data-name={name}>
+          <article className='card' id={id} data-name={name} key={id}>
             <header style={{ backgroundColor: "silver" }}>{name}</header>
-            {image ? (
-              <img src={image} alt='' />
-            ) : null}
+            {image ? <img src={image} alt='' /> : null}
             <section className='card-details-section'>
               <div className='card-details'>
                 {tags.map((tag, i) => (
@@ -29,15 +27,9 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         );
       } else if (category[0] === "Treasure") {
         return (
-          <article className='card' id={id} data-name={name}>
+          <article className='card' id={id} data-name={name} key={id}>
             <header style={{ backgroundColor: "gold" }}>{name}</header>
-            {image ? (
-              <img
-                src={image}
-                alt={name}
-                style={{ flex: 1 }}
-              />
-            ) : null}
+            {image ? <img src={image} alt={name} style={{ flex: 1 }} /> : null}
             <footer>
               <p>{cost}</p>
               <p>{category}</p>
@@ -46,15 +38,9 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         );
       } else {
         return (
-          <article className='card' id={id} data-name={name}>
+          <article className='card' id={id} data-name={name} key={id}>
             <header style={{ backgroundColor: "lightGreen" }}>{name}</header>
-            {image ? (
-              <img
-                src={image}
-                alt={name}
-                style={{ flex: 1 }}
-              />
-            ) : null}
+            {image ? <img src={image} alt={name} style={{ flex: 1 }} /> : null}
             <footer>
               <p>{cost}</p>
               <p>{category}</p>
@@ -63,7 +49,11 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         );
       }
     } else {
-      return <p>Loading</p>;
+      return (
+        <article className='card'>
+          <p className='card-X'>X</p>
+        </article>
+      );
     }
   };
 
