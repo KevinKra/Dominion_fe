@@ -6,7 +6,7 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
     if (category !== undefined) {
       if (category[0] === "Action") {
         return (
-          <article className='card' id={id}>
+          <article className='card' id={id} data-name={name}>
             <header style={{ backgroundColor: "silver" }}>{name}</header>
             {/* {image ? (
               <img src={require(`../../assets/card_images/${image}`)} alt='' />
@@ -29,7 +29,7 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         );
       } else if (category[0] === "Treasure") {
         return (
-          <article className='card' id={id}>
+          <article className='card' id={id} data-name={name}>
             <header style={{ backgroundColor: "gold" }}>{name}</header>
             {/* {image ? (
               <img
@@ -46,7 +46,7 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         );
       } else {
         return (
-          <article className='card' id={id}>
+          <article className='card' id={id} data-name={name}>
             <header style={{ backgroundColor: "lightGreen" }}>{name}</header>
             {/* {image ? (
               <img
