@@ -1,8 +1,15 @@
 .ActivatedCards {
   display: flex;
   position: absolute;
+  justify-content: center;
   z-index: 1;
-  border: 1px solid red;
   width: 50%;
-  height: 100px;
+  margin-top: 0.5rem;
+  border: 1px solid black;
+  border-bottom: 1px dashed black;
+  border-top: 1px dashed black;
+  min-height: 100px;
+  .turn-notifier {
+    position: absolute;
+  }
 }

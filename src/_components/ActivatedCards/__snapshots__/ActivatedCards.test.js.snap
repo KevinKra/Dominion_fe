@@ -4,6 +4,11 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
 <section
   className="ActivatedCards"
 >
+  <p
+    className="turn-notifier"
+  >
+    "Waiting For Opponent"
+  </p>
   <Card
     category={
       Array [

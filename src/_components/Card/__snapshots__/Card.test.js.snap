@@ -1,9 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Card /> should match the loading snapshot 1`] = `
-<p>
-  Loading
-</p>
+<article
+  className="card"
+>
+  <p
+    className="card-X"
+  >
+    X
+  </p>
+</article>
 `;
 
 exports[`<Card /> should match the mockActionCard snapshot 1`] = `
@@ -11,6 +17,7 @@ exports[`<Card /> should match the mockActionCard snapshot 1`] = `
   className="card"
   data-name="Village"
   id={1231}
+  key="1231"
 >
   <header
     style={
@@ -46,6 +53,7 @@ exports[`<Card /> should match the mockTreasureCard snapshot 1`] = `
   className="card"
   data-name="Copper"
   id={1113}
+  key="1113"
 >
   <header
     style={
@@ -81,6 +89,7 @@ exports[`<Card /> should match the mockVictoryCard snapshot 1`] = `
   className="card"
   data-name="Province"
   id={3781}
+  key="3781"
 >
   <header
     style={

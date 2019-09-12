@@ -34,9 +34,7 @@ export class PlayerSection extends Component {
     }
     if (gameState.activePlayerId === this.props.playerID) {
       //active player
-      console.log(
-        "It's your turn, turnInterval turned off. Please complete your turn."
-      );
+      console.log("It's your turn, turnInterval turned off. Please complete your turn.");
       clearInterval(this.turnInterval);
       this.turnInterval = undefined;
 
@@ -67,10 +65,7 @@ export class PlayerSection extends Component {
 
   updatePlayerData = async () => {
     if (!this.state.dataUpdated) {
-      const playerData = await updatePlayerState(
-        this.props.gameID,
-        this.props.playerID
-      );
+      const playerData = await updatePlayerState(this.props.gameID, this.props.playerID);
       console.log(playerData);
       const drawnCards = this.draw(playerData.deck);
       console.log(drawnCards);
@@ -105,11 +100,7 @@ export class PlayerSection extends Component {
       const playerDeckIds = this.props.playerDeck.map(deckCard => {
         return deckCard.id;
       });
-      const discardPile = [
-        ...boughtCardIds,
-        ...handCardIds,
-        ...activatedCardsIds
-      ];
+      const discardPile = [...boughtCardIds, ...handCardIds, ...activatedCardsIds];
       this.props.discardCards(discardPile);
       this.props.endTurn();
       this.endTurn(boughtCardIds, discardPile, playerDeckIds);
@@ -153,13 +144,19 @@ export class PlayerSection extends Component {
   }
 
   render() {
+    const gameIdNotifier =
+      this.props.tableCards.length === 0 ? (
+        <p className='game-id'>GAME ID: {this.props.gameID}</p>
+      ) : null;
+
     return (
-      <section className="PlayerSection">
+      <section className='PlayerSection'>
+        {gameIdNotifier}
         <ActivatedCards />
         <PlayerDeck />
         <PlayerHand />
         <DiscardPile />
-        <button className="end-turn" onClick={this.cleanUp}>
+        <button className='end-turn' onClick={this.cleanUp}>
           End Turn
         </button>
       </section>
@@ -168,6 +165,7 @@ export class PlayerSection extends Component {
 }
 
 export const mapStateToProps = state => ({
+  tableCards: state.tableCards,
   playerTurn: state.playerTurn,
   playerDeck: state.playerDeck,
   playerHand: state.playerHand,
@@ -186,9 +184,7 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(actions.updatePlayerCards(deck, hand, discardPile)),
   updateTableCards: cards => dispatch(actions.updateTableCards(cards)),
   applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
-    dispatch(
-      actions.applyActionValues(spendingPower, buyingPower, actionsProvided)
-    ),
+    dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided)),
   discardCards: cards => dispatch(actions.discardCards(cards))
 });
 

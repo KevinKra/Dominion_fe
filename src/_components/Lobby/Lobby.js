@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createLobby, joinLobby } from "../../_utils/apiCalls";
 import ScrollLock from "react-scrolllock";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import * as actions from "../../_redux/actions";
 import "./Lobby.scss";
 
@@ -44,7 +44,7 @@ export class Lobby extends Component {
         <div className='Lobby'>
           <section className='splash-section'>
             <div className='splash-text'>
-              <h1>Primus Imperium</h1>
+              <h1>Accession Online</h1>
               <p>-- A Deck Building Card Game --</p>
               <Link to='start-section' smooth={true} duration={800} isDynamic={true}>
                 <button onClick={this.handleScroll}>Begin</button>
