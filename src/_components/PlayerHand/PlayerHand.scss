@@ -2,19 +2,13 @@
 
 .PlayerHand {
   display: flex;
-  position: relative;
+  position: absolute;
+  bottom: 0;
   z-index: 2;
   justify-content: center;
   transform: translateY(60%);
   .card:hover {
     transition: 0.8s transform ease;
     transform: translateY(-60%);
-  }
-}
-
-@media screen and (max-width: 1500px) {
-  .PlayerHand {
-    // width: 50%;
-    // transform: translateY(60%);
   }
 }

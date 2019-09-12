@@ -9,6 +9,7 @@
   box-shadow: 1px 1px 2px black;
   height: 190px;
   width: 130px;
+  min-width: 130px;
   margin: 0.3rem;
   background-color: #eee;
   transition: 0.5s all cubic-bezier(0.71, 2, 0.68, 0.79);
@@ -69,6 +70,7 @@
   .card {
     height: 215px;
     width: 150px;
+    min-width: 115px;
     p {
       font-size: 10px;
     }
@@ -82,6 +84,7 @@
   .card {
     height: 170px;
     width: 115px;
+    min-width: 115px;
     p {
       font-size: 8px;
     }
@@ -95,6 +98,7 @@
   .card {
     height: 215px;
     width: 150px;
+    min-width: 115px;
     p {
       font-size: 10px;
     }
