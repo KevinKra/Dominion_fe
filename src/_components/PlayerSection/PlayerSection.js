@@ -31,7 +31,9 @@ export class PlayerSection extends Component {
       //active player
       console.log("It's your turn, turnInterval turned off. Please complete your turn.");
       clearInterval(this.turnInterval);
+
       this.props.startTurn();
+      this.props.applyActionValues(0, 9, 1);
       this.updatePlayerData();
     } else {
       //waiting player
@@ -96,7 +98,9 @@ export const mapDispatchToProps = dispatch => ({
   endTurn: () => dispatch(actions.endTurn()),
   updatePlayerCards: (deck, hand, discardPile) =>
     dispatch(actions.updatePlayerCards(deck, hand, discardPile)),
-  updateTableCards: cards => dispatch(actions.updateTableCards(cards))
+  updateTableCards: cards => dispatch(actions.updateTableCards(cards)),
+  applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
+    dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided))
 });
 
 export default connect(

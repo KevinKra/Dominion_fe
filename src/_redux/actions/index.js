@@ -63,15 +63,24 @@ export const activateCard = card => {
   };
 };
 
-export const applyActionValues = (
-  spendingPower,
-  buyingPower,
-  actionsProvided
-) => {
+export const applyActionValues = (spendingPower, buyingPower, actionsProvided) => {
   return {
     type: "APPLY_ACTION_VALUES",
     spendingPower,
     buyingPower,
     actionsProvided
+  };
+};
+
+export const bought = id => {
+  return {
+    type: "BUY_CARD",
+    id
+  };
+};
+
+export const useBuy = () => {
+  return {
+    type: "USE_BUY"
   };
 };
