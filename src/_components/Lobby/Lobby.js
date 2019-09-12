@@ -61,9 +61,12 @@ export class Lobby extends Component {
                 <form onSubmit={event => this.handleSubmit(event, "create")}>
                   <label htmlFor='username'>Username:</label>
                   <input
-                    type='text'
-                    name='username'
-                    autoComplete='off'
+                    type="text"
+                    name="username"
+                    required
+                    minlength="3"
+                    maxlength="10"
+                    autoComplete="off"
                     onChange={e => this.handleChange(e)}
                   />
                   <button>CREATE GAME</button>
@@ -74,16 +77,20 @@ export class Lobby extends Component {
                 <form onSubmit={e => this.handleSubmit(e, "join")}>
                   <label htmlFor='username'>Username:</label>
                   <input
-                    type='text'
-                    name='username'
-                    autoComplete='off'
+                    type="text"
+                    required
+                    name="username"
+                    minlength="3"
+                    maxlength="10"
+                    autoComplete="off"
                     onChange={e => this.handleChange(e)}
                   />
                   <label htmlFor='gameId'>Game Id:</label>
                   <input
-                    type='text'
-                    name='gameId'
-                    autoComplete='off'
+                    type="number"
+                    required
+                    name="gameId"
+                    autoComplete="off"
                     onChange={e => this.handleChange(e)}
                   />
                   <button>JOIN GAME</button>
