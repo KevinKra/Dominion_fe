@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dominion Online
 
-## Available Scripts
+Dominion Online is a face paced card building game. Two players are able to connect to the same server and battle against one another. Each turn, a series of cards will be drawn from your deck with unique abilities that will aid you in building your kingdom and winning the game!
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+1. Clone the [repo](https://github.com/KevinKra/Dominion_fe) down to your machine
+2. Run `npm install` in the root directory
+3. Run `npm start` in the root directory
+4. Visit localhost:3000 on your browser
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+#### Frontend Stack
 
-### `npm test`
+- React
+- Redux
+- JavaScript
+- SCSS/CSS
+- Jest / Enzyme
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Backend Stack - [Github](https://github.com/BrennanAyers/tsdbcg)
 
-### `npm run build`
+- Ruby
+- Rails
+- PostgreSQL
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Functionality
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Current
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- User can host a game, will recieve a unique id referencing the game address.
+- Guest can use the unique id to join the game.
+- Players can buy cards from the table using cards from their hand
+- Rounds will cycle between both players with protections in place to prevent exploits.
+- Users can build up their deck which will persist between turns
 
-### `npm run eject`
+### Future
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Users can use dynamic action cards to trigger unique events
+- Users can have a profile page and track stats
+- Deeper UI integration
+- Multiple players can join the same game
+- Websockets can be leveraged to provide real-time game updates
+- Additional card expansions added to the game
+- In-game communication allowed between players
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Members
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- KevinKra - Frontend Developer - [Github](https://github.com/KevinKra)
+- vjt960 - Frontend Developer - [Github](https://github.com/vjt960)
+- BrennanAyers - Backend Developer - [Github](https://github.com/BrennanAyers)
+- DavisC0801 - Backend Developer - [GitHub](https://github.com/DavisC0801)
+- Patrick-Duvall - Backend Developer - [Github](https://github.com/Patrick-Duvall)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
 
-## Learn More
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Please make sure to update tests as appropriate.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[MIT](https://choosealicense.com/licenses/mit/)
