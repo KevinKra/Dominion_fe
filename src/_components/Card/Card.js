@@ -8,9 +8,9 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         return (
           <article className='card' id={id} data-name={name}>
             <header style={{ backgroundColor: "silver" }}>{name}</header>
-            {/* {image ? (
-              <img src={require(`../../assets/card_images/${image}`)} alt='' />
-            ) : null} */}
+            {image ? (
+              <img src={image} alt='' />
+            ) : null}
             <section className='card-details-section'>
               <div className='card-details'>
                 {tags.map((tag, i) => (
@@ -31,13 +31,13 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         return (
           <article className='card' id={id} data-name={name}>
             <header style={{ backgroundColor: "gold" }}>{name}</header>
-            {/* {image ? (
+            {image ? (
               <img
-                src={require(`../../assets/card_images/${image}`)}
+                src={image}
                 alt={name}
                 style={{ flex: 1 }}
               />
-            ) : null} */}
+            ) : null}
             <footer>
               <p>{cost}</p>
               <p>{category}</p>
@@ -48,13 +48,13 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
         return (
           <article className='card' id={id} data-name={name}>
             <header style={{ backgroundColor: "lightGreen" }}>{name}</header>
-            {/* {image ? (
+            {image ? (
               <img
-                src={require(`../../assets/card_images/${image}`)}
+                src={image}
                 alt={name}
                 style={{ flex: 1 }}
               />
-            ) : null} */}
+            ) : null}
             <footer>
               <p>{cost}</p>
               <p>{category}</p>
