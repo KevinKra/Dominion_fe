@@ -3,6 +3,7 @@
 exports[`<ActionCards /> should match the snapshot 1`] = `
 <section
   className="ActionCards"
+  onClick={[Function]}
 >
   <Card
     category={
