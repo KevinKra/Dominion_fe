@@ -4,11 +4,18 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
 <section
   className="ActivatedCards"
 >
-  <p
-    className="turn-notifier"
+  <div
+    className="waiting-response"
   >
-    "Waiting For Opponent"
-  </p>
+    <p
+      className="turn-notifier"
+    >
+      Waiting For Opponent
+    </p>
+    <k
+      className="turn-loader"
+    />
+  </div>
   <Card
     category={
       Array [
