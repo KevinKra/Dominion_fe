@@ -4,6 +4,7 @@ exports[`<TableDeck /> should match the snapshot 1`] = `
 <section
   className="TableDeck"
 >
+  <Connect(Notification) />
   <Connect(VictoryCards)
     buyCard={[Function]}
   />

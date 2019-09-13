@@ -12,6 +12,7 @@ import { buyingPower } from "./buyingPower";
 import { activatedCards } from "./activatedCards";
 import { actionsProvided } from "./actionsProvided";
 import { bought } from "./bought";
+import { justBought } from "./justBought";
 
 export const rootReducer = combineReducers({
   tableCards,
@@ -26,5 +27,6 @@ export const rootReducer = combineReducers({
   buyingPower,
   activatedCards,
   actionsProvided,
-  bought
+  bought,
+  justBought
 });

@@ -91,3 +91,10 @@ export const discardCards = cards => {
     cards
   };
 };
+
+export const boughtCard = cardName => {
+  return {
+    type: "BOUGHT_CARD",
+    cardName
+  };
+};
