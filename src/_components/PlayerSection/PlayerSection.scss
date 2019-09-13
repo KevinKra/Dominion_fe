@@ -1,4 +1,5 @@
 @import "../../styles/_variables.scss";
+@import "../../styles/_animations.scss";
 
 .PlayerSection {
   position: relative;
@@ -27,8 +28,53 @@
       outline: none;
     }
   }
+}
+
+.loading-page {
+  font-family: "Germania One", cursive;
+  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  .loading-container {
+    animation: fadeInUp 1.2s;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 225px;
+    width: 350px;
+    border: 1px solid $color2;
+    border-top: 1px dashed $color2;
+    border-bottom: 1px dashed $color2;
+    background-color: $color1;
+    box-shadow: 1px 1px 15px $color2;
+  }
+  .loading-icon-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color2;
+    width: 100%;
+  }
+  .loading-icon {
+  }
   .game-id {
+  }
+  .background-image {
     position: absolute;
-    top: 40%;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background: url("https://tsdbcg.herokuapp.com/card_images/freshwater-bay.jpg");
+    background-size: cover;
+  }
+  h2 {
+    margin: 1rem 0;
   }
 }
