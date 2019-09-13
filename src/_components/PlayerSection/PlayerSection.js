@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import * as actions from "../../_redux/actions";
 import ActivatedCards from "../ActivatedCards/ActivatedCards";
 import * as SVGLoaders from "svg-loaders-react";
@@ -9,7 +9,8 @@ import DiscardPile from "../DiscardPile/DiscardPile";
 import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
 import "./PlayerSection.scss";
 
-const url = "http://localhost:3000";
+// const url = "http://localhost:3000";
+const url = "https://accession-game-server.herokuapp.com";
 
 export class PlayerSection extends Component {
   state = {
@@ -111,7 +112,6 @@ export class PlayerSection extends Component {
   };
 
   endTurn = async (boughtCardIds, discardPile, playerDeckIds) => {
-    // const url = "https://accession-game-server.herokuapp.com";
     const path = "/api/v1/endturn";
     const options = {
       method: "POST",
