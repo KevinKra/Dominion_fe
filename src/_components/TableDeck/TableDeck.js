@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import TreasureCards from "../TreasureCards/TreasureCards";
 import VictoryCards from "../VictoryCards/VictoryCards";
 import ActionCards from "../ActionCards/ActionCards";
+import Notification from "../Notification/Notification";
 import { connect } from "react-redux";
 import * as actions from "../../_redux/actions/index";
 import "./TableDeck.scss";
 
 export class TableDeck extends Component {
   componentDidMount() {
-    //Update this for fetching from an endpoint
     this.props.updateTableCards(this.props.tableCards);
   }
 
@@ -18,11 +18,11 @@ export class TableDeck extends Component {
     const matchingStack = this.props.tableCards.find(tableCard => {
       return tableCard.name === clickedName;
     });
-    // console.log("matchingStack", matchingStack);
     if (this.props.spendingPower < matchingStack.cost) {
       return console.log("not enough money to buy");
     } else {
       const boughtId = matchingStack.id_list.pop();
+      this.props.boughtCard(clickedName);
       this.props.spendTreasure(matchingStack.cost);
       this.props.bought(boughtId);
       this.props.useBuy();
@@ -33,6 +33,7 @@ export class TableDeck extends Component {
     return (
       this.props.tableCards.length !== 0 && (
         <section className='TableDeck'>
+          <Notification />
           <VictoryCards buyCard={this.buyCard} />
           <ActionCards buyCard={this.buyCard} />
           <TreasureCards buyCard={this.buyCard} />
@@ -52,6 +53,7 @@ const mapDispatchToProps = dispatch => ({
   updateTableCards: cards => dispatch(actions.updateTableCards(cards)),
   spendTreasure: value => dispatch(actions.spendTreasure(value)),
   bought: id => dispatch(actions.bought(id)),
+  boughtCard: cardName => dispatch(actions.boughtCard(cardName)),
   useBuy: () => dispatch(actions.useBuy())
 });
 
