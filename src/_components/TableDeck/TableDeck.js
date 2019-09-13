@@ -31,11 +31,13 @@ export class TableDeck extends Component {
 
   render() {
     return (
-      <section className='TableDeck'>
-        <VictoryCards buyCard={this.buyCard} />
-        <ActionCards buyCard={this.buyCard} />
-        <TreasureCards buyCard={this.buyCard} />
-      </section>
+      this.props.tableCards.length !== 0 && (
+        <section className='TableDeck'>
+          <VictoryCards buyCard={this.buyCard} />
+          <ActionCards buyCard={this.buyCard} />
+          <TreasureCards buyCard={this.buyCard} />
+        </section>
+      )
     );
   }
 }
