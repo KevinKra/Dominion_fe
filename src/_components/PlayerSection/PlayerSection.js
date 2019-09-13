@@ -152,7 +152,7 @@ export class PlayerSection extends Component {
           <div className='background-image' />
         </section>
       ) : (
-        <Fragment>
+        <section className='loaded-content'>
           <ActivatedCards />
           <PlayerDeck />
           <PlayerHand />
@@ -160,7 +160,7 @@ export class PlayerSection extends Component {
           <button className='end-turn' onClick={this.cleanUp}>
             End Turn
           </button>
-        </Fragment>
+        </section>
       );
 
     return <section className='PlayerSection'>{gameIdNotifier}</section>;
