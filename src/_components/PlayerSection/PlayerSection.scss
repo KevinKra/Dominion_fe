@@ -10,6 +10,13 @@
   width: 100%;
   height: 100%;
   background-color: $color1;
+  .loaded-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    animation: fadeInUp 1s;
+  }
   .end-turn {
     position: absolute;
     right: 1.5rem;
@@ -32,7 +39,6 @@
 
 .loading-page {
   font-family: "Germania One", cursive;
-  border: 1px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;
