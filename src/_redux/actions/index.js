@@ -98,3 +98,27 @@ export const boughtCard = cardName => {
     cardName
   };
 };
+
+export const clearCard = () => {
+  return {
+    type: "CLEAR_CARD"
+  };
+};
+
+export const incrementRound = () => {
+  return {
+    type: "INCREMENT_ROUND"
+  };
+};
+
+export const clearGame = () => {
+  return {
+    type: "CLEAR_GAME"
+  };
+};
+
+export const triggerHandAnimation = () => {
+  return {
+    type: "TRIGGER_HAND_ANIMATION"
+  };
+};
