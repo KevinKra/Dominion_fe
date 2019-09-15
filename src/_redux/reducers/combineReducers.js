@@ -13,6 +13,8 @@ import { activatedCards } from "./activatedCards";
 import { actionsProvided } from "./actionsProvided";
 import { bought } from "./bought";
 import { justBought } from "./justBought";
+import { round } from "./round";
+import { animateHand } from "./animateHand";
 
 export const rootReducer = combineReducers({
   tableCards,
@@ -28,5 +30,7 @@ export const rootReducer = combineReducers({
   activatedCards,
   actionsProvided,
   bought,
-  justBought
+  justBought,
+  round,
+  animateHand
 });
