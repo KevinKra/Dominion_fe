@@ -105,12 +105,6 @@ export const clearCard = () => {
   };
 };
 
-// export const incrementRound = () => {
-//   return {
-//     type: "INCREMENT_ROUND"
-//   };
-// };
-
 export const clearGame = () => {
   return {
     type: "CLEAR_GAME"
