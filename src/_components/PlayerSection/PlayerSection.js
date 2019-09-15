@@ -6,7 +6,7 @@ import * as SVGLoaders from "svg-loaders-react";
 import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
 import DiscardPile from "../DiscardPile/DiscardPile";
-import { updateGameState, updatePlayerState, endTurnPOST } from "../../_utils/apiCalls";
+import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
 import "./PlayerSection.scss";
 
 const url = "https://accession-game-server.herokuapp.com";
