@@ -1,4 +1,4 @@
-import { TimelineMax, Back } from "gsap";
+import { Back } from "gsap";
 export const gsapCardsCycleIn = (timeline, dataArray, onComplete) => {
   timeline
     .to(
