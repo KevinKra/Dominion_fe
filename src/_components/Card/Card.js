@@ -7,7 +7,11 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
       if (category[0] === "Action") {
         return (
           <article className='card' id={id} data-name={name} key={id}>
-            <header style={{ backgroundColor: "silver" }}>{name}</header>
+            <header
+              style={{ backgroundColor: "rgb(29, 29, 29)", color: "rgb(255, 255, 255)" }}
+            >
+              {name}
+            </header>
             {image ? <img src={image} alt='' /> : null}
             <section className='card-details-section'>
               <div className='card-details'>
@@ -20,7 +24,7 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
               </div>
             </section>
             <footer>
-              <p>{cost}</p>
+              <p className='card-cost'>{cost}</p>
               <p>{category}</p>
             </footer>
           </article>
@@ -31,7 +35,7 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
             <header style={{ backgroundColor: "gold" }}>{name}</header>
             {image ? <img src={image} alt={name} style={{ flex: 1 }} /> : null}
             <footer>
-              <p>{cost}</p>
+              <p className='card-cost'>{cost}</p>
               <p>{category}</p>
             </footer>
           </article>
@@ -42,7 +46,7 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
             <header style={{ backgroundColor: "lightGreen" }}>{name}</header>
             {image ? <img src={image} alt={name} style={{ flex: 1 }} /> : null}
             <footer>
-              <p>{cost}</p>
+              <p className='card-cost'>{cost}</p>
               <p>{category}</p>
             </footer>
           </article>
