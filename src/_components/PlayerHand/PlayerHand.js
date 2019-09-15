@@ -16,13 +16,11 @@ export class PlayerHand extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Animate cards during the first round
-    if (this.props.round === 1 && this.props.playerHand.length === 5) {
-      gsapCardsCycleIn(this.tl, this.cards, this.showUserHand);
-      this.tl.play();
-    }
-    // Animate if the playerDeck has changed and the hand has content
-    if (prevProps.playerDeck !== this.props.playerDeck && this.props.playerHand.length) {
+    // Animate if the discardPile has changed and the hand has content
+    if (
+      prevProps.discardPile !== this.props.discardPile &&
+      this.props.playerHand.length
+    ) {
       gsapCardsCycleIn(this.tl, this.cards, this.showUserHand);
       this.tl.play();
     }
@@ -104,6 +102,7 @@ export const mapDispatchToProps = dispatch => ({
 export const mapStateToProps = state => ({
   playerHand: state.playerHand,
   playerDeck: state.playerDeck,
+  discardPile: state.discardPile,
   animateHand: state.animateHand,
   round: state.round
 });
