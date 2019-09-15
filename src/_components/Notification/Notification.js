@@ -1,28 +1,36 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "../../_redux/actions";
 import "./Notification.scss";
 
 export class Notification extends Component {
   state = {
-    previousCard: ""
+    currentCard: ""
   };
+
+  // componentDidUpdate() {
+  //   this.setState({ currentCard: "" });
+  // }
+
   componentWillReceiveProps(props) {
-    console.log(props);
-    if (props.justBought !== this.state.previousCard) {
-      this.setState({ previousCard: props.justBought });
+    this.setState({ currentCard: "" });
+    if (props.justBought !== this.state.currentCard) {
+      this.setState({ currentCard: props.justBought });
+    } else {
+      this.setState({ currentCard: "" });
     }
   }
   render() {
     const notification = (
       <section
         className={
-          this.state.previousCard !== ""
+          this.state.currentCard !== ""
             ? "show-notification notification"
             : "hide-notification notification"
         }
       >
         <div>
-          <p>You just bought {this.props.justBought}!</p>
+          <p>You just bought {this.state.currentCard}!</p>
         </div>
       </section>
     );
@@ -30,8 +38,15 @@ export class Notification extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  clearCard: () => dispatch(actions.clearCard())
+});
+
 const mapStateToProps = state => ({
   justBought: state.justBought
 });
 
-export default connect(mapStateToProps)(Notification);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Notification);
