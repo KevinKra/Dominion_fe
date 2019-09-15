@@ -14,7 +14,7 @@ export const updatePlayerCards = (playerDeck, playerHand, discardPile) => {
   };
 };
 
-export const beginTurn = () => {
+export const startTurn = () => {
   return {
     type: "START_TURN"
   };
@@ -105,11 +105,11 @@ export const clearCard = () => {
   };
 };
 
-export const incrementRound = () => {
-  return {
-    type: "INCREMENT_ROUND"
-  };
-};
+// export const incrementRound = () => {
+//   return {
+//     type: "INCREMENT_ROUND"
+//   };
+// };
 
 export const clearGame = () => {
   return {
