@@ -7,10 +7,8 @@ import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
 import DiscardPile from "../DiscardPile/DiscardPile";
 import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
-import { mockGameState, mockPlayerData } from "../../mockData";
 import "./PlayerSection.scss";
 
-// const url = "http://localhost:3000";
 const url = "https://accession-game-server.herokuapp.com";
 
 export class PlayerSection extends Component {
@@ -20,7 +18,6 @@ export class PlayerSection extends Component {
 
   componentDidMount = () => {
     this.startTimer();
-    // this.props.incrementRound();
     this.requestPlayerTurn();
   };
 
@@ -34,7 +31,6 @@ export class PlayerSection extends Component {
 
   requestPlayerTurn = async () => {
     const gameState = await updateGameState(this.props.gameID);
-    // const gameState = mockGameState;
     if (gameState.tableDeck.length === 0) {
       return console.log("Waiting for game to start.");
     }
@@ -43,7 +39,6 @@ export class PlayerSection extends Component {
       console.log("It's your turn, turnInterval turned off. Please complete your turn.");
       clearInterval(this.turnInterval);
       this.turnInterval = undefined;
-      this.props.incrementRound();
       this.props.startTurn();
       this.props.applyActionValues(0, 1, 1);
       this.updatePlayerData();
@@ -72,10 +67,7 @@ export class PlayerSection extends Component {
   updatePlayerData = async () => {
     if (!this.state.dataUpdated && !this.props.playerHand.length) {
       const playerData = await updatePlayerState(this.props.gameID, this.props.playerID);
-      // const playerData = mockPlayerData;
-      console.log(playerData);
       const drawnCards = this.draw(playerData.deck);
-      console.log(drawnCards);
       this.props.updatePlayerCards(
         drawnCards.deck,
         drawnCards.newHand,
@@ -100,7 +92,6 @@ export class PlayerSection extends Component {
         ...activatedCardsIds,
         ...discardedIds
       ]);
-      // this.props.incrementRound();
       this.props.endTurn();
       this.endTurn(boughtCardIds, [], newDeck);
     } else {
@@ -109,7 +100,6 @@ export class PlayerSection extends Component {
       });
       const discardPile = [...boughtCardIds, ...handCardIds, ...activatedCardsIds];
       this.props.discardCards(discardPile);
-      // this.props.incrementRound();
       this.props.endTurn();
       this.endTurn(boughtCardIds, discardPile, playerDeckIds);
     }
@@ -180,12 +170,11 @@ export const mapStateToProps = state => ({
   gameID: state.gameID,
   playerID: state.playerID,
   bought: state.bought,
-  activatedCards: state.activatedCards,
-  triggerHandAnimation: state.triggerHandAnimation
+  activatedCards: state.activatedCards
 });
 
 export const mapDispatchToProps = dispatch => ({
-  startTurn: () => dispatch(actions.beginTurn()),
+  startTurn: () => dispatch(actions.startTurn()),
   cycleToPhase: phase => dispatch(actions.cycleToPhase(phase)),
   endTurn: () => dispatch(actions.endTurn()),
   updatePlayerCards: (deck, hand, discardPile) =>
@@ -193,8 +182,7 @@ export const mapDispatchToProps = dispatch => ({
   updateTableCards: cards => dispatch(actions.updateTableCards(cards)),
   applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
     dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided)),
-  discardCards: cards => dispatch(actions.discardCards(cards)),
-  incrementRound: () => dispatch(actions.incrementRound())
+  discardCards: cards => dispatch(actions.discardCards(cards))
 });
 
 export default connect(
