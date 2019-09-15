@@ -6,7 +6,7 @@ import * as SVGLoaders from "svg-loaders-react";
 import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
 import DiscardPile from "../DiscardPile/DiscardPile";
-import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
+import { updateGameState, updatePlayerState, endTurnPOST } from "../../_utils/apiCalls";
 import "./PlayerSection.scss";
 
 const url = "https://accession-game-server.herokuapp.com";
@@ -77,35 +77,7 @@ export class PlayerSection extends Component {
     this.setState({ dataUpdated: true });
   };
 
-  cleanUp = () => {
-    const boughtCardIds = this.props.bought;
-    const handCardIds = this.props.playerHand.map(card => card.id);
-    const activatedCardsIds = this.props.activatedCards.map(
-      activatedCard => activatedCard.id
-    );
-    const discardedIds = this.props.discardPile.map(card => card.id);
-
-    if (!this.props.playerDeck.length) {
-      const newDeck = this.shuffle([
-        ...boughtCardIds,
-        ...handCardIds,
-        ...activatedCardsIds,
-        ...discardedIds
-      ]);
-      this.props.endTurn();
-      this.endTurn(boughtCardIds, [], newDeck);
-    } else {
-      const playerDeckIds = this.props.playerDeck.map(deckCard => {
-        return deckCard.id;
-      });
-      const discardPile = [...boughtCardIds, ...handCardIds, ...activatedCardsIds];
-      this.props.discardCards(discardPile);
-      this.props.endTurn();
-      this.endTurn(boughtCardIds, discardPile, playerDeckIds);
-    }
-  };
-
-  endTurn = async (boughtCardIds, discardPile, playerDeckIds) => {
+  endTurnPOST = async (boughtCardIds, discardPile, playerDeckIds) => {
     const path = "/api/v1/endturn";
     const options = {
       method: "POST",
@@ -129,6 +101,34 @@ export class PlayerSection extends Component {
       return reply;
     } catch (error) {
       throw Error(error.message);
+    }
+  };
+
+  cleanUp = () => {
+    const boughtCardIds = this.props.bought;
+    const handCardIds = this.props.playerHand.map(card => card.id);
+    const activatedCardsIds = this.props.activatedCards.map(
+      activatedCard => activatedCard.id
+    );
+    const discardedIds = this.props.discardPile.map(card => card.id);
+
+    if (!this.props.playerDeck.length) {
+      const newDeck = this.shuffle([
+        ...boughtCardIds,
+        ...handCardIds,
+        ...activatedCardsIds,
+        ...discardedIds
+      ]);
+      this.props.endTurn();
+      this.endTurnPOST(boughtCardIds, [], newDeck);
+    } else {
+      const playerDeckIds = this.props.playerDeck.map(deckCard => {
+        return deckCard.id;
+      });
+      const discardPile = [...boughtCardIds, ...handCardIds, ...activatedCardsIds];
+      this.props.discardCards(discardPile);
+      this.props.endTurn();
+      this.endTurnPOST(boughtCardIds, discardPile, playerDeckIds);
     }
   };
 
