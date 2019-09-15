@@ -3,12 +3,30 @@
 .PlayerHand {
   display: flex;
   position: absolute;
+  border: 1px solid red;
+  height: 100px;
+  width: 50%;
   bottom: 0;
   z-index: 2;
   justify-content: center;
-  transform: translateY(60%);
+  transition: 1s transform ease;
   .card:hover {
-    transition: 0.8s transform ease;
-    transform: translateY(-60%);
+    transition: 0.6s transform ease;
+    transform: translateY(-75%);
   }
+}
+.hand-animations {
+  position: relative;
+  width: 100%;
+}
+.animated-card {
+  position: absolute;
+  opacity: 0;
+  left: 13vw;
+  bottom: 5vh;
+  z-index: 5;
+  background-color: lightblue;
+  border: 1px solid red;
+  height: 175px;
+  width: 125px;
 }
