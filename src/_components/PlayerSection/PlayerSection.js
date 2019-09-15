@@ -7,6 +7,7 @@ import PlayerDeck from "../PlayerDeck/PlayerDeck";
 import PlayerHand from "../PlayerHand/PlayerHand";
 import DiscardPile from "../DiscardPile/DiscardPile";
 import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
+import { mockGameState, mockPlayerData } from "../../mockData";
 import "./PlayerSection.scss";
 
 // const url = "http://localhost:3000";
@@ -18,8 +19,8 @@ export class PlayerSection extends Component {
   };
 
   componentDidMount = () => {
-    // this.turnInterval = setInterval(() => this.requestPlayerTurn(), 15000);
     this.startTimer();
+    // this.props.incrementRound();
     this.requestPlayerTurn();
   };
 
@@ -33,6 +34,7 @@ export class PlayerSection extends Component {
 
   requestPlayerTurn = async () => {
     const gameState = await updateGameState(this.props.gameID);
+    // const gameState = mockGameState;
     if (gameState.tableDeck.length === 0) {
       return console.log("Waiting for game to start.");
     }
@@ -41,7 +43,7 @@ export class PlayerSection extends Component {
       console.log("It's your turn, turnInterval turned off. Please complete your turn.");
       clearInterval(this.turnInterval);
       this.turnInterval = undefined;
-
+      this.props.incrementRound();
       this.props.startTurn();
       this.props.applyActionValues(0, 1, 1);
       this.updatePlayerData();
@@ -68,8 +70,9 @@ export class PlayerSection extends Component {
   };
 
   updatePlayerData = async () => {
-    if (!this.state.dataUpdated) {
+    if (!this.state.dataUpdated && !this.props.playerHand.length) {
       const playerData = await updatePlayerState(this.props.gameID, this.props.playerID);
+      // const playerData = mockPlayerData;
       console.log(playerData);
       const drawnCards = this.draw(playerData.deck);
       console.log(drawnCards);
@@ -97,8 +100,8 @@ export class PlayerSection extends Component {
         ...activatedCardsIds,
         ...discardedIds
       ]);
+      // this.props.incrementRound();
       this.props.endTurn();
-      console.log(boughtCardIds, [], newDeck);
       this.endTurn(boughtCardIds, [], newDeck);
     } else {
       const playerDeckIds = this.props.playerDeck.map(deckCard => {
@@ -106,6 +109,7 @@ export class PlayerSection extends Component {
       });
       const discardPile = [...boughtCardIds, ...handCardIds, ...activatedCardsIds];
       this.props.discardCards(discardPile);
+      // this.props.incrementRound();
       this.props.endTurn();
       this.endTurn(boughtCardIds, discardPile, playerDeckIds);
     }
@@ -176,7 +180,8 @@ export const mapStateToProps = state => ({
   gameID: state.gameID,
   playerID: state.playerID,
   bought: state.bought,
-  activatedCards: state.activatedCards
+  activatedCards: state.activatedCards,
+  triggerHandAnimation: state.triggerHandAnimation
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -188,7 +193,8 @@ export const mapDispatchToProps = dispatch => ({
   updateTableCards: cards => dispatch(actions.updateTableCards(cards)),
   applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
     dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided)),
-  discardCards: cards => dispatch(actions.discardCards(cards))
+  discardCards: cards => dispatch(actions.discardCards(cards)),
+  incrementRound: () => dispatch(actions.incrementRound())
 });
 
 export default connect(
