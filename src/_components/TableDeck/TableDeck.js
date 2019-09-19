@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import TreasureCards from "../TreasureCards/TreasureCards";
-import VictoryCards from "../VictoryCards/VictoryCards";
-import ActionCards from "../ActionCards/ActionCards";
-import { connect } from "react-redux";
-import * as actions from "../../_redux/actions/index";
-import "./TableDeck.scss";
+import React, { Component } from 'react';
+import TreasureCards from '../TreasureCards/TreasureCards';
+import VictoryCards from '../VictoryCards/VictoryCards';
+import ActionCards from '../ActionCards/ActionCards';
+import { connect } from 'react-redux';
+import * as actions from '../../_redux/actions/index';
+import './TableDeck.scss';
 
 export class TableDeck extends Component {
   componentDidMount() {
@@ -14,13 +14,13 @@ export class TableDeck extends Component {
 
   buyCard = e => {
     if (this.props.buyingPower < 1) return;
-    const clickedName = e.target.closest("article").getAttribute("data-name");
+    const clickedName = e.target.closest('article').getAttribute('data-name');
     const matchingStack = this.props.tableCards.find(tableCard => {
       return tableCard.name === clickedName;
     });
-    // console.log("matchingStack", matchingStack);
+    console.log('matchingStack', matchingStack);
     if (this.props.spendingPower < matchingStack.cost) {
-      return console.log("not enough money to buy");
+      return console.log('not enough money to buy');
     } else {
       const boughtId = matchingStack.id_list.pop();
       this.props.spendTreasure(matchingStack.cost);
@@ -31,7 +31,7 @@ export class TableDeck extends Component {
 
   render() {
     return (
-      <section className='TableDeck'>
+      <section className="TableDeck">
         <VictoryCards buyCard={this.buyCard} />
         <ActionCards buyCard={this.buyCard} />
         <TreasureCards buyCard={this.buyCard} />
