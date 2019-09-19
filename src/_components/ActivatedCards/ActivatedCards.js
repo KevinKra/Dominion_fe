@@ -1,13 +1,25 @@
 import React from 'react';
 import Card from '../Card/Card';
 import { connect } from 'react-redux';
+import * as SVGLoaders from 'svg-loaders-react';
 import './ActivatedCards.scss';
 
 export function ActivatedCards(props) {
   const turnNotifier = props.playerTurn.isActive ? (
-    <p className="turn-notifier">"Your Turn!"</p>
+    <p
+      className={
+        props.activatedCards.length === 0
+          ? 'turn-notifier'
+          : 'turn-notifier-void'
+      }
+    >
+      It's Your Turn!
+    </p>
   ) : (
-    <p className="turn-notifier">"Waiting For Opponent"</p>
+    <div className="waiting-response">
+      <p className="turn-notifier">Waiting For Opponent</p>
+      <SVGLoaders.ThreeDots className="turn-loader" />
+    </div>
   );
   return (
     <section className="ActivatedCards">

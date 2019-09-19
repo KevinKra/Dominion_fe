@@ -25,7 +25,7 @@ export default function Card({ name, desc, category, image, cost, tags, id }) {
             </footer>
           </article>
         );
-      } else if (category[0] === "Treasure") {
+      } else if (category[0] === "Money") {
         return (
           <article className='card' id={id} data-name={name} key={id}>
             <header style={{ backgroundColor: "gold" }}>{name}</header>

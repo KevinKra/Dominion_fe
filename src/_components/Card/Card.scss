@@ -1,20 +1,24 @@
+@import "../../styles/_variables.scss";
+@import "../../styles/_animations.scss";
+
 .card {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
+  border: 2px solid $color2;
   border-radius: 1px;
-  box-shadow: 1px 1px 2px black;
+  box-shadow: 1px 1px 2px $color2;
   height: 190px;
   width: 130px;
   min-width: 130px;
   margin: 0.3rem;
   background-color: #eee;
   transition: 0.5s all cubic-bezier(0.71, 2, 0.68, 0.79);
+  animation: fadeIn 1.1s;
   .card-details-section {
-    border-top: 1px solid black;
+    border-top: 1px solid $color2;
     height: 100%;
     width: 100%;
   }

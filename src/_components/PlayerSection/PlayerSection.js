@@ -1,12 +1,16 @@
-import { connect } from "react-redux";
-import React, { Component } from "react";
-import * as actions from "../../_redux/actions";
-import ActivatedCards from "../ActivatedCards/ActivatedCards";
-import PlayerDeck from "../PlayerDeck/PlayerDeck";
-import PlayerHand from "../PlayerHand/PlayerHand";
-import DiscardPile from "../DiscardPile/DiscardPile";
-import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
-import "./PlayerSection.scss";
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import * as actions from '../../_redux/actions';
+import ActivatedCards from '../ActivatedCards/ActivatedCards';
+import * as SVGLoaders from 'svg-loaders-react';
+import PlayerDeck from '../PlayerDeck/PlayerDeck';
+import PlayerHand from '../PlayerHand/PlayerHand';
+import DiscardPile from '../DiscardPile/DiscardPile';
+import { updateGameState, updatePlayerState } from '../../_utils/apiCalls';
+import './PlayerSection.scss';
+
+// const url = "http://localhost:3000";
+const url = 'https://accession-game-server.herokuapp.com';
 
 export class PlayerSection extends Component {
   state = {
@@ -29,7 +33,7 @@ export class PlayerSection extends Component {
   requestPlayerTurn = async () => {
     const gameState = await updateGameState(this.props.gameID);
     if (gameState.tableDeck.length === 0) {
-      return console.log("Waiting for game to start.");
+      return console.log('Waiting for game to start.');
     }
     if (gameState.activePlayerId === this.props.playerID) {
       //active player
@@ -44,7 +48,7 @@ export class PlayerSection extends Component {
       this.updatePlayerData();
     } else {
       //waiting player
-      console.log("Not your turn, continuing the interval check the turn");
+      console.log('Not your turn, continuing the interval check the turn');
       this.updatePlayerData();
     }
     console.log(gameState);
@@ -116,12 +120,12 @@ export class PlayerSection extends Component {
   };
 
   endTurn = async (boughtCardIds, discardPile, playerDeckIds) => {
-    const url = "https://accession-game-server.herokuapp.com";
-    const localUrl = "http://localhost:3000";
-    const path = "/api/v1/endturn";
+    const url = 'https://accession-game-server.herokuapp.com';
+    const localUrl = 'http://localhost:3000';
+    const path = '/api/v1/endturn';
     const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         gameId: this.props.gameID,
         playerId: this.props.playerID,
@@ -133,7 +137,7 @@ export class PlayerSection extends Component {
     try {
       const response = await fetch(localUrl + path, options);
       if (!response.ok) {
-        throw new Error("Failed to end turn.");
+        throw new Error('Failed to end turn.');
       }
       const reply = await response.json();
       this.setState({ dataUpdated: false });
@@ -144,32 +148,32 @@ export class PlayerSection extends Component {
     }
   };
 
-  //!!! need to reset dataUpdated to false at the start of every turn so players will fetch
-  //their data once regardless whether they are active or waiting
-  startNewTurn() {
-    //this function needs to reset dataUpdatedToFalse
-    //needs to be called at the start of requestPlayerTurn to reset local state
-    //then both players are able to fetch their respective cards and toggle that state to off.
-  }
-
   render() {
     const gameIdNotifier =
       this.props.tableCards.length === 0 ? (
-        <p className="game-id">GAME ID: {this.props.gameID}</p>
-      ) : null;
+        <section className="loading-page">
+          <div className="loading-container">
+            <h2>Waiting for Opponent</h2>
+            <p className="game-id">GAME ID: {this.props.gameID}</p>
+            <div className="loading-icon-container">
+              <SVGLoaders.BallTriangle className="loading-icon" />
+            </div>
+          </div>
+          <div className="background-image" />
+        </section>
+      ) : (
+        <section className="loaded-content">
+          <ActivatedCards />
+          <PlayerDeck />
+          <PlayerHand />
+          <DiscardPile />
+          <button className="end-turn" onClick={this.cleanUp}>
+            End Turn
+          </button>
+        </section>
+      );
 
-    return (
-      <section className="PlayerSection">
-        {gameIdNotifier}
-        <ActivatedCards />
-        <PlayerDeck />
-        <PlayerHand />
-        <DiscardPile />
-        <button className="end-turn" onClick={this.cleanUp}>
-          End Turn
-        </button>
-      </section>
-    );
+    return <section className="PlayerSection">{gameIdNotifier}</section>;
   }
 }
 

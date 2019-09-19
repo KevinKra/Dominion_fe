@@ -1,17 +1,17 @@
-const url = "http://accession-game-server.herokuapp.com";
-const localUrl = "http://localhost:3000";
+const url = 'http://accession-game-server.herokuapp.com';
+const localUrl = 'http://localhost:3000';
 
 export const createLobby = async username => {
-  const path = "/api/v1/games";
+  const path = '/api/v1/games';
   const options = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ newPlayer: { name: username } })
   };
   try {
     const response = await fetch(localUrl + path, options);
     if (!response.ok) {
-      throw new Error("Failed to join lobby.");
+      throw new Error('Failed to join lobby.');
     }
     const playerToken = await response.json();
     console.log(playerToken);
@@ -22,16 +22,16 @@ export const createLobby = async username => {
 };
 
 export const joinLobby = async (username, gameID) => {
-  const path = "/api/v1/join_game";
+  const path = '/api/v1/join_game';
   const options = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ playerName: username, gameId: gameID })
   };
   try {
     const response = await fetch(localUrl + path, options);
     if (!response.ok) {
-      throw new Error("Failed to join lobby.");
+      throw new Error('Failed to join lobby.');
     }
     const playerToken = await response.json();
     console.log(playerToken);
@@ -46,7 +46,7 @@ export const updateGameState = async gameID => {
   try {
     const response = await fetch(localUrl + path);
     if (!response.ok) {
-      throw new Error("Failed to update game state.");
+      throw new Error('Failed to update game state.');
     }
     const gameState = await response.json();
     return gameState;
@@ -60,7 +60,7 @@ export const updatePlayerState = async (gameID, playerID) => {
   try {
     const response = await fetch(localUrl + path);
     if (!response.ok) {
-      throw new Error("Failed to update game state.");
+      throw new Error('Failed to update game state.');
     }
     const playerState = await response.json();
     return playerState;

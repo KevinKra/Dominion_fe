@@ -1,0 +1,34 @@
+@import "../../styles/_variables";
+@import "../../styles/_animations";
+
+.notification {
+  width: 100%;
+  height: 25px;
+  position: absolute;
+  text-align: center;
+  z-index: 4;
+  transform: translateY(0rem);
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 100%;
+    width: 50%;
+    background-color: $color2;
+    border-bottom: 1px dashed $color1;
+  }
+  p {
+    font-family: "Germania One", cursive;
+    display: inline-block;
+    margin: auto 0;
+    color: $color1;
+  }
+}
+
+.show-notification {
+  animation: slideInOut 3s forwards;
+}
+.hide-notification {
+  display: none;
+}

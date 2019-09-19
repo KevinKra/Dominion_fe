@@ -4,15 +4,19 @@ exports[`<PlayerSection /> should match the snapshot 1`] = `
 <section
   className="PlayerSection"
 >
-  <Connect(ActivatedCards) />
-  <Connect(PlayerDeck) />
-  <Connect(PlayerHand) />
-  <DiscardPile />
-  <button
-    className="end-turn"
-    onClick={[Function]}
+  <section
+    className="loaded-content"
   >
-    End Turn
-  </button>
+    <Connect(ActivatedCards) />
+    <Connect(PlayerDeck) />
+    <Connect(PlayerHand) />
+    <DiscardPile />
+    <button
+      className="end-turn"
+      onClick={[Function]}
+    >
+      End Turn
+    </button>
+  </section>
 </section>
 `;
