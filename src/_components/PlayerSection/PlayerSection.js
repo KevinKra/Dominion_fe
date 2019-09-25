@@ -1,16 +1,16 @@
-import { connect } from "react-redux";
-import React, { Component } from "react";
-import * as actions from "../../_redux/actions";
-import ActivatedCards from "../ActivatedCards/ActivatedCards";
-import * as SVGLoaders from "svg-loaders-react";
-import PlayerDeck from "../PlayerDeck/PlayerDeck";
-import PlayerHand from "../PlayerHand/PlayerHand";
-import DiscardPile from "../DiscardPile/DiscardPile";
-import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
-import "./PlayerSection.scss";
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import * as actions from '../../_redux/actions';
+import ActivatedCards from '../ActivatedCards/ActivatedCards';
+import * as SVGLoaders from 'svg-loaders-react';
+import PlayerDeck from '../PlayerDeck/PlayerDeck';
+import PlayerHand from '../PlayerHand/PlayerHand';
+import DiscardPile from '../DiscardPile/DiscardPile';
+import { updateGameState, updatePlayerState } from '../../_utils/apiCalls';
+import './PlayerSection.scss';
 
 // const url = "http://localhost:3000";
-const url = "https://accession-game-server.herokuapp.com";
+const url = 'https://accession-game-server.herokuapp.com';
 
 export class PlayerSection extends Component {
   state = {
@@ -18,13 +18,12 @@ export class PlayerSection extends Component {
   };
 
   componentDidMount = () => {
-    // this.turnInterval = setInterval(() => this.requestPlayerTurn(), 15000);
     this.startTimer();
     this.requestPlayerTurn();
   };
 
   startTimer = () => {
-    this.turnInterval = setInterval(() => this.requestPlayerTurn(), 15000);
+    this.turnInterval = setInterval(() => this.requestPlayerTurn(), 4000);
   };
 
   componentWillUnmount = () => {
@@ -34,11 +33,13 @@ export class PlayerSection extends Component {
   requestPlayerTurn = async () => {
     const gameState = await updateGameState(this.props.gameID);
     if (gameState.tableDeck.length === 0) {
-      return console.log("Waiting for game to start.");
+      return console.log('Waiting for game to start.');
     }
     if (gameState.activePlayerId === this.props.playerID) {
       //active player
-      console.log("It's your turn, turnInterval turned off. Please complete your turn.");
+      console.log(
+        "It's your turn, turnInterval turned off. Please complete your turn."
+      );
       clearInterval(this.turnInterval);
       this.turnInterval = undefined;
 
@@ -47,7 +48,7 @@ export class PlayerSection extends Component {
       this.updatePlayerData();
     } else {
       //waiting player
-      console.log("Not your turn, continuing the interval check the turn");
+      console.log('Not your turn, continuing the interval check the turn');
       this.updatePlayerData();
     }
     console.log(gameState);
@@ -69,7 +70,10 @@ export class PlayerSection extends Component {
 
   updatePlayerData = async () => {
     if (!this.state.dataUpdated) {
-      const playerData = await updatePlayerState(this.props.gameID, this.props.playerID);
+      const playerData = await updatePlayerState(
+        this.props.gameID,
+        this.props.playerID
+      );
       console.log(playerData);
       const drawnCards = this.draw(playerData.deck);
       console.log(drawnCards);
@@ -90,7 +94,7 @@ export class PlayerSection extends Component {
     );
     const discardedIds = this.props.discardPile.map(card => card.id);
 
-    if (!this.props.playerDeck.length) {
+    if (this.props.playerDeck.length < 5) {
       const newDeck = this.shuffle([
         ...boughtCardIds,
         ...handCardIds,
@@ -104,7 +108,11 @@ export class PlayerSection extends Component {
       const playerDeckIds = this.props.playerDeck.map(deckCard => {
         return deckCard.id;
       });
-      const discardPile = [...boughtCardIds, ...handCardIds, ...activatedCardsIds];
+      const discardPile = [
+        ...boughtCardIds,
+        ...handCardIds,
+        ...activatedCardsIds
+      ];
       this.props.discardCards(discardPile);
       this.props.endTurn();
       this.endTurn(boughtCardIds, discardPile, playerDeckIds);
@@ -112,10 +120,12 @@ export class PlayerSection extends Component {
   };
 
   endTurn = async (boughtCardIds, discardPile, playerDeckIds) => {
-    const path = "/api/v1/endturn";
+    const url = 'https://accession-game-server.herokuapp.com';
+    const localUrl = 'http://localhost:3000';
+    const path = '/api/v1/endturn';
     const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         gameId: this.props.gameID,
         playerId: this.props.playerID,
@@ -125,9 +135,9 @@ export class PlayerSection extends Component {
       })
     };
     try {
-      const response = await fetch(url + path, options);
+      const response = await fetch(localUrl + path, options);
       if (!response.ok) {
-        throw new Error("Failed to end turn.");
+        throw new Error('Failed to end turn.');
       }
       const reply = await response.json();
       this.setState({ dataUpdated: false });
@@ -141,29 +151,29 @@ export class PlayerSection extends Component {
   render() {
     const gameIdNotifier =
       this.props.tableCards.length === 0 ? (
-        <section className='loading-page'>
-          <div className='loading-container'>
+        <section className="loading-page">
+          <div className="loading-container">
             <h2>Waiting for Opponent</h2>
-            <p className='game-id'>GAME ID: {this.props.gameID}</p>
-            <div className='loading-icon-container'>
-              <SVGLoaders.BallTriangle className='loading-icon' />
+            <p className="game-id">GAME ID: {this.props.gameID}</p>
+            <div className="loading-icon-container">
+              <SVGLoaders.BallTriangle className="loading-icon" />
             </div>
           </div>
-          <div className='background-image' />
+          <div className="background-image" />
         </section>
       ) : (
-        <section className='loaded-content'>
+        <section className="loaded-content">
           <ActivatedCards />
           <PlayerDeck />
           <PlayerHand />
           <DiscardPile />
-          <button className='end-turn' onClick={this.cleanUp}>
+          <button className="end-turn" onClick={this.cleanUp}>
             End Turn
           </button>
         </section>
       );
 
-    return <section className='PlayerSection'>{gameIdNotifier}</section>;
+    return <section className="PlayerSection">{gameIdNotifier}</section>;
   }
 }
 
@@ -187,7 +197,9 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(actions.updatePlayerCards(deck, hand, discardPile)),
   updateTableCards: cards => dispatch(actions.updateTableCards(cards)),
   applyActionValues: (spendingPower, buyingPower, actionsProvided) =>
-    dispatch(actions.applyActionValues(spendingPower, buyingPower, actionsProvided)),
+    dispatch(
+      actions.applyActionValues(spendingPower, buyingPower, actionsProvided)
+    ),
   discardCards: cards => dispatch(actions.discardCards(cards))
 });
 

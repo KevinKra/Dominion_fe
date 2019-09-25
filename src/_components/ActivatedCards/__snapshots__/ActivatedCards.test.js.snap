@@ -28,6 +28,12 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Village.jpg"
     key="1231"
     name="Village"
+    tags={
+      Array [
+        "+1 Card",
+        "+2 Actions",
+      ]
+    }
   />
   <Card
     category={
@@ -42,6 +48,11 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Militia.jpg"
     key="1391"
     name="Militia"
+    tags={
+      Array [
+        "+2 Gold",
+      ]
+    }
   />
   <Card
     category={
@@ -55,6 +66,11 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Smithy.jpg"
     key="9531"
     name="Smithy"
+    tags={
+      Array [
+        "+3 Cards",
+      ]
+    }
   />
   <Card
     category={
@@ -68,6 +84,14 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Market.jpg"
     key="1532"
     name="Market"
+    tags={
+      Array [
+        "+1 Card",
+        "+1 Action",
+        "+1 Buy",
+        "+1 Gold",
+      ]
+    }
   />
   <Card
     category={
@@ -81,6 +105,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Mine.jpg"
     key="1522"
     name="Mine"
+    tags={Array []}
   />
   <Card
     category={
@@ -94,6 +119,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Remodel.jpg"
     key="3333"
     name="Remodel"
+    tags={Array []}
   />
   <Card
     category={
@@ -107,6 +133,11 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Cellar.jpg"
     key="9831"
     name="Cellar"
+    tags={
+      Array [
+        "+1 Action",
+      ]
+    }
   />
   <Card
     category={
@@ -121,6 +152,11 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Moat.jpg"
     key="1938"
     name="Moat"
+    tags={
+      Array [
+        "+2 Cards",
+      ]
+    }
   />
   <Card
     category={
@@ -134,6 +170,12 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="WoodCutter.jpg"
     key="9781"
     name="WoodCutter"
+    tags={
+      Array [
+        "+1 Buy",
+        "+2 Gold",
+      ]
+    }
   />
   <Card
     category={
@@ -147,6 +189,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     image="Workshop.jpg"
     key="1333"
     name="WorkShop"
+    tags={Array []}
   />
   <Card
     category={

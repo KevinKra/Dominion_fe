@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import "./ActionCard.scss";
-import * as actions from "../../_redux/actions";
-import Card from "../Card/Card";
-import { connect } from "react-redux";
+import * as actions from '../../_redux/actions';
+import Card from '../Card/Card';
+import { connect } from 'react-redux';
 
 export class ActionCard extends Component {
   draw = drawCount => {
@@ -20,7 +20,7 @@ export class ActionCard extends Component {
   playActionCard = event => {
     event.preventDefault();
     if (!this.props.playerTurn.isActive) return;
-    if (!this.props.playerTurn.phase === "Action") return;
+    if (!this.props.playerTurn.phase === 'Action') return;
     const {
       spendingPower,
       buyingPower,
@@ -28,11 +28,23 @@ export class ActionCard extends Component {
       cardsToDraw,
       applyActionValues,
       activateCard,
-      playerHand
+      playerHand,
+      card
     } = this.props;
+
     applyActionValues(spendingPower, buyingPower, actionsProvided);
     cardsToDraw > 0 && this.draw(cardsToDraw);
-    activateCard(playerHand.find(card => card.id === event.target.id));
+    console.log(
+      'EVENT TARGET ID:',
+      event.target.closest('section').getAttribute('id')
+    );
+    console.log(playerHand);
+    activateCard(
+      card
+      // playerHand.find(
+      //   card => card.id == event.target.closest(".section").getAttribute("id")
+      // )
+    );
   };
 
   render() {
