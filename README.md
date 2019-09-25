@@ -1,6 +1,6 @@
 # ACCESSION
 
-Accession Online is a face paced card building game. Two players are able to connect to the same server and battle against one another. Each turn, a series of cards will be drawn from your deck with unique abilities that will aid you in building your kingdom and winning the game!
+Accession Online is a fast paced card building game. Two players are able to connect to the same server and battle against one another. Each turn, a series of cards will be drawn from your deck with unique abilities that will aid you in building your kingdom and winning the game!
 
 ---
 
