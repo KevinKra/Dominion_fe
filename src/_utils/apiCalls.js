@@ -1,5 +1,8 @@
-const url = "https://accession-game-server.herokuapp.com";
-// const url = "http://localhost:3000";
+import ActionCable from 'actioncable';
+// const url = "https://accession-game-server.herokuapp.com";
+const url = "http://localhost:3000";
+const App = {};
+App.cable = ActionCable.createConsumer(`${url}/cable`);
 
 export const createLobby = async username => {
   const path = "/api/v1/games";
@@ -21,24 +24,27 @@ export const createLobby = async username => {
   }
 };
 
-export const joinLobby = async (username, gameID) => {
-  const path = "/api/v1/join_game";
-  const options = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ playerName: username, gameId: gameID })
-  };
-  try {
-    const response = await fetch(url + path, options);
-    if (!response.ok) {
-      throw new Error("Failed to join lobby.");
-    }
-    const playerToken = await response.json();
-    console.log(playerToken);
-    return playerToken;
-  } catch (error) {
-    throw Error(error.message);
-  }
+export const joinLobby = async (username, gameID, callback) => {
+  App.cable.subscriptions.create({ channel: "GameChannel", game: gameID },{
+    received: callback
+  });
+  // const path = "/api/v1/join_game";
+  // const options = {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({ playerName: username, gameId: gameID })
+  // };
+  // try {
+  //   const response = await fetch(url + path, options);
+  //   if (!response.ok) {
+  //     throw new Error("Failed to join lobby.");
+  //   }
+  //   const playerToken = await response.json();
+  //   console.log(playerToken);
+  //   return playerToken;
+  // } catch (error) {
+  //   throw Error(error.message);
+  // }
 };
 
 export const updateGameState = async gameID => {

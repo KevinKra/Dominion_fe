@@ -28,8 +28,9 @@ export class Lobby extends Component {
         initiatePlayer(hostToken.gameId, hostToken.playerId, hostToken.playerName);
       }
       if (format === "join") {
-        const memberToken = await joinLobby(username, gameId);
-        initiatePlayer(memberToken.gameId, memberToken.playerId, memberToken.playerName);
+        await joinLobby(username, gameId, broadcast => {
+          initiatePlayer(broadcast.gameId, broadcast.playerId, broadcast.playerName);
+        });
       }
       this.setState({ error: "" });
       this.props.history.push("/current-game");
