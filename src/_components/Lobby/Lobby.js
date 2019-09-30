@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createLobby, joinLobby } from "../../_utils/apiCalls";
+import { createLobby, joinLobby, createSubscription } from "../../_utils/apiCalls";
 import ScrollLock from "react-scrolllock";
 import { Link } from "react-scroll";
 import * as actions from "../../_redux/actions";
@@ -25,12 +25,17 @@ export class Lobby extends Component {
     try {
       if (format === "create") {
         const hostToken = await createLobby(username);
+        const broadcast = await createSubscription(hostToken.playerID, data => {
+          console.log(data);
+        });
         initiatePlayer(hostToken.gameId, hostToken.playerId, hostToken.playerName);
       }
       if (format === "join") {
-        await joinLobby(username, gameId, broadcast => {
-          initiatePlayer(broadcast.gameId, broadcast.playerId, broadcast.playerName);
+        const memberToken = await joinLobby(username, gameId);
+        const broadcast = await createSubscription(memberToken.playerID, data => {
+          console.log(data);
         });
+        initiatePlayer(memberToken.gameId, memberToken.playerId, memberToken.playerName);
       }
       this.setState({ error: "" });
       this.props.history.push("/current-game");

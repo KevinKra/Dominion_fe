@@ -9,8 +9,8 @@ import DiscardPile from "../DiscardPile/DiscardPile";
 import { updateGameState, updatePlayerState } from "../../_utils/apiCalls";
 import "./PlayerSection.scss";
 
-// const url = "http://localhost:3000";
-const url = "https://accession-game-server.herokuapp.com";
+const url = "http://localhost:3000";
+// const url = "https://accession-game-server.herokuapp.com";
 
 export class PlayerSection extends Component {
   state = {
