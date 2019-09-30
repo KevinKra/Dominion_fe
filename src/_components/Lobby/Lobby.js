@@ -25,14 +25,14 @@ export class Lobby extends Component {
     try {
       if (format === "create") {
         const hostToken = await createLobby(username);
-        const broadcast = await createSubscription(hostToken.playerID, data => {
+        await createSubscription(hostToken.playerID, data => {
           console.log(data);
         });
         initiatePlayer(hostToken.gameId, hostToken.playerId, hostToken.playerName);
       }
       if (format === "join") {
         const memberToken = await joinLobby(username, gameId);
-        const broadcast = await createSubscription(memberToken.playerID, data => {
+        await createSubscription(memberToken.playerId, data => {
           console.log(data);
         });
         initiatePlayer(memberToken.gameId, memberToken.playerId, memberToken.playerName);

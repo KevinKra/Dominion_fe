@@ -72,7 +72,9 @@ export const updatePlayerState = async (gameID, playerID) => {
 };
 
 export const createSubscription = async (playerID, callback) => {
-  App.cable = ActionCable.createConsumer(`${url}/cable?player_id=${playerID}`);
+  if (!App.cable) {
+    App.cable = ActionCable.createConsumer(`${url}/cable?player_id=${playerID}`);
+  }
   App.cable.subscriptions.create({ channel: "GameStateChannel", player_id: playerID },{
     received: callback
   });
