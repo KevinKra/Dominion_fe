@@ -135,7 +135,7 @@ export class PlayerSection extends Component {
       })
     };
     try {
-      const response = await fetch(localUrl + path, options);
+      const response = await fetch(url + path, options);
       if (!response.ok) {
         throw new Error('Failed to end turn.');
       }
