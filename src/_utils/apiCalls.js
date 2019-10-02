@@ -1,4 +1,4 @@
-const url = 'http://accession-game-server.herokuapp.com';
+const url = 'https://accession-game-server.herokuapp.com';
 const localUrl = 'http://localhost:3000';
 
 export const createLobby = async username => {
