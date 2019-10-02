@@ -108,8 +108,8 @@ export class Lobby extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  initiatePlayer: (gameID, playerID, playerName) =>
-    dispatch(actions.initiatePlayer(gameID, playerID, playerName))
+  initiatePlayer: (gameId, playerId, playerName) =>
+    dispatch(actions.initiatePlayer(gameId, playerId, playerName))
 });
 
 export default connect(
