@@ -1,5 +1,7 @@
-const url = 'http://accession-game-server.herokuapp.com';
-const localUrl = 'http://localhost:3000';
+import ActionCable from 'actioncable';
+// const url = 'https://accession-game-server.herokuapp.com';
+const url = 'http://localhost:3000';
+let App = {};
 
 export const createLobby = async username => {
   const path = '/api/v1/games';
@@ -9,7 +11,7 @@ export const createLobby = async username => {
     body: JSON.stringify({ newPlayer: { name: username } })
   };
   try {
-    const response = await fetch(localUrl + path, options);
+    const response = await fetch(url + path, options);
     if (!response.ok) {
       throw new Error('Failed to join lobby.');
     }
@@ -21,7 +23,7 @@ export const createLobby = async username => {
   }
 };
 
-export const joinLobby = async (username, gameID) => {
+export const joinLobby = async (username, gameID, callback) => {
   const path = '/api/v1/join_game';
   const options = {
     method: 'POST',
@@ -29,7 +31,7 @@ export const joinLobby = async (username, gameID) => {
     body: JSON.stringify({ playerName: username, gameId: gameID })
   };
   try {
-    const response = await fetch(localUrl + path, options);
+    const response = await fetch(url + path, options);
     if (!response.ok) {
       throw new Error('Failed to join lobby.');
     }
@@ -44,7 +46,7 @@ export const joinLobby = async (username, gameID) => {
 export const updateGameState = async gameID => {
   const path = `/api/v1/game_state/${gameID}`;
   try {
-    const response = await fetch(localUrl + path);
+    const response = await fetch(url + path);
     if (!response.ok) {
       throw new Error('Failed to update game state.');
     }
@@ -58,7 +60,7 @@ export const updateGameState = async gameID => {
 export const updatePlayerState = async (gameID, playerID) => {
   const path = `/api/v1/games/${gameID}/players/${playerID}`;
   try {
-    const response = await fetch(localUrl + path);
+    const response = await fetch(url + path);
     if (!response.ok) {
       throw new Error('Failed to update game state.');
     }
@@ -67,4 +69,29 @@ export const updatePlayerState = async (gameID, playerID) => {
   } catch (error) {
     throw Error(error.message);
   }
+};
+
+export const createSubscription = async (playerID, callback) => {
+  if (!App.cable) {
+    App.cable = ActionCable.createConsumer(
+      `${url}/cable?player_id=${playerID}`
+    );
+  }
+  App.cable.subscriptions.create(
+    { channel: 'GameStateChannel', player_id: playerID },
+    {
+      received: callback
+    }
+  );
+  console.log(App.cable);
+  // const cable = ActionCable.createConsumer(
+  //   `${url}/cable?player_id=${playerID}`
+  // );
+  // cable.subscriptions.create(
+  //   {
+  //     channel: 'GameStateChannel',
+  //     player_id: playerID
+  //   },
+  //   { received: callback }
+  // );
 };
