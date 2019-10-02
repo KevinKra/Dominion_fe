@@ -4,8 +4,8 @@ import { playerDeck } from "./playerDeck";
 import { playerHand } from "./playerHand";
 import { discardPile } from "./discardPile";
 import { playerTurn } from "./playerTurn";
-import { gameID } from "./gameID";
-import { playerID } from "./playerID";
+import { gameId } from "./gameId";
+import { playerId } from "./playerId";
 import { playerName } from "./playerName";
 import { spendingPower } from "./spendingPower";
 import { buyingPower } from "./buyingPower";
@@ -20,8 +20,8 @@ export const rootReducer = combineReducers({
   playerDeck,
   playerHand,
   discardPile,
-  gameID,
-  playerID,
+  gameId,
+  playerId,
   playerName,
   spendingPower,
   buyingPower,

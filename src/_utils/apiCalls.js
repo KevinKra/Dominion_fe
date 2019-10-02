@@ -21,12 +21,12 @@ export const createLobby = async username => {
   }
 };
 
-export const joinLobby = async (username, gameID) => {
+export const joinLobby = async (username, gameId) => {
   const path = '/api/v1/join_game';
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ playerName: username, gameId: gameID })
+    body: JSON.stringify({ playerName: username, gameId: gameId })
   };
   try {
     const response = await fetch(localUrl + path, options);
@@ -41,8 +41,8 @@ export const joinLobby = async (username, gameID) => {
   }
 };
 
-export const updateGameState = async gameID => {
-  const path = `/api/v1/game_state/${gameID}`;
+export const updateGameState = async gameId => {
+  const path = `/api/v1/game_state/${gameId}`;
   try {
     const response = await fetch(localUrl + path);
     if (!response.ok) {
@@ -55,8 +55,8 @@ export const updateGameState = async gameID => {
   }
 };
 
-export const updatePlayerState = async (gameID, playerID) => {
-  const path = `/api/v1/games/${gameID}/players/${playerID}`;
+export const updatePlayerState = async (gameId, playerId) => {
+  const path = `/api/v1/games/${gameId}/players/${playerId}`;
   try {
     const response = await fetch(localUrl + path);
     if (!response.ok) {

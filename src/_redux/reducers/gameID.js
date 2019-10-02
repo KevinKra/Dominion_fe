@@ -1,7 +1,7 @@
-export const gameID = (state = null, action) => {
+export const gameId = (state = null, action) => {
   switch (action.type) {
     case "INITIATE_PLAYER":
-      return action.gameID;
+      return action.gameId;
     default:
       return state;
   }
