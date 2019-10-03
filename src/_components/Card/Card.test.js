@@ -1,12 +1,12 @@
-import React from "react";
-import Card from "./Card";
-import { shallow } from "enzyme";
-import { shallowToJson } from "enzyme-to-json";
-import { mockTreasureCard } from "../../mockData";
-import { mockVictoryCard } from "../../mockData";
-import { mockActionCard } from "../../mockData";
+import React from 'react';
+import { Card } from './Card';
+import { shallow } from 'enzyme';
+import { shallowToJson } from 'enzyme-to-json';
+import { mockTreasureCard } from '../../mockData';
+import { mockVictoryCard } from '../../mockData';
+import { mockActionCard } from '../../mockData';
 
-describe("<Card />", () => {
+describe('<Card />', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(
@@ -21,10 +21,10 @@ describe("<Card />", () => {
       />
     );
   });
-  it("should match the mockActionCard snapshot", () => {
+  it('should match the mockActionCard snapshot', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
-  it("should match the mockTreasureCard snapshot", () => {
+  it('should match the mockTreasureCard snapshot', () => {
     wrapper = shallow(
       <Card
         name={mockTreasureCard.name}
@@ -38,7 +38,7 @@ describe("<Card />", () => {
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
-  it("should match the mockVictoryCard snapshot", () => {
+  it('should match the mockVictoryCard snapshot', () => {
     wrapper = shallow(
       <Card
         name={mockVictoryCard.name}
@@ -52,7 +52,7 @@ describe("<Card />", () => {
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
-  it("should match the loading snapshot", () => {
+  it('should match the loading snapshot', () => {
     const loadingWrapper = shallow(<Card />);
     expect(shallowToJson(loadingWrapper)).toMatchSnapshot();
   });
