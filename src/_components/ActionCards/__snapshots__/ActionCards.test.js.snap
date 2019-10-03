@@ -5,7 +5,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
   className="ActionCards"
   onClick={[Function]}
 >
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -24,7 +24,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -43,7 +43,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -61,7 +61,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -82,7 +82,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -96,7 +96,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
     name="Mine"
     tags={Array []}
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -110,7 +110,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
     name="Remodel"
     tags={Array []}
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -128,7 +128,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -147,7 +147,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -166,7 +166,7 @@ exports[`<ActionCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",

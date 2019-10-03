@@ -30,8 +30,7 @@ export class Lobby extends Component {
       if (format === 'create') {
         const hostToken = await createLobby(username);
         await createSubscription(hostToken.playerId, data => {
-          const message = JSON.parse(data.message);
-          console.log(message);
+          console.log(JSON.parse(data.message));
         });
         initiatePlayer(
           hostToken.gameId,

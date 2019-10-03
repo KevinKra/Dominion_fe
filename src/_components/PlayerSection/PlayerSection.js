@@ -43,15 +43,20 @@ export class PlayerSection extends Component {
       clearInterval(this.turnInterval);
       this.turnInterval = undefined;
 
-      this.props.startTurn();
-      this.props.applyActionValues(0, 1, 1);
-      this.updatePlayerData();
+      this.updatePlayerData().then(() => {
+        this.props.applyActionValues(0, 1, 1);
+        if (gameState.tableDeck.length < 16) {
+          this.requestPlayerTurn();
+        } else {
+          this.props.startTurn();
+        }
+      });
     } else {
       //waiting player
       console.log('Not your turn, continuing the interval check the turn');
       this.updatePlayerData();
     }
-    console.log(gameState);
+    console.log('FETCHED GAMESTATE', gameState);
     this.props.updateTableCards(gameState.tableDeck);
   };
 
@@ -74,9 +79,8 @@ export class PlayerSection extends Component {
         this.props.gameId,
         this.props.playerId
       );
-      console.log(playerData);
+      console.log('Fetched playerData: ', playerData);
       const drawnCards = this.draw(playerData.deck);
-      console.log(drawnCards);
       this.props.updatePlayerCards(
         drawnCards.deck,
         drawnCards.newHand,
@@ -102,7 +106,7 @@ export class PlayerSection extends Component {
         ...discardedIds
       ]);
       this.props.endTurn();
-      console.log(boughtCardIds, [], newDeck);
+      this.props.purgeDiscardPile();
       this.endTurn(boughtCardIds, [], newDeck);
     } else {
       const playerDeckIds = this.props.playerDeck.map(deckCard => {
@@ -200,7 +204,8 @@ export const mapDispatchToProps = dispatch => ({
     dispatch(
       actions.applyActionValues(spendingPower, buyingPower, actionsProvided)
     ),
-  discardCards: cards => dispatch(actions.discardCards(cards))
+  discardCards: cards => dispatch(actions.discardCards(cards)),
+  purgeDiscardPile: () => dispatch(actions.purgeDiscardPile())
 });
 
 export default connect(
