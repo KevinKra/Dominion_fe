@@ -1,5 +1,7 @@
-const url = 'http://accession-game-server.herokuapp.com';
-const localUrl = 'http://localhost:3000';
+import ActionCable from 'actioncable';
+const url = 'https://accession-game-server.herokuapp.com';
+// const url = 'http://localhost:3000';
+let App = {};
 
 export const createLobby = async username => {
   const path = '/api/v1/games';
@@ -9,7 +11,7 @@ export const createLobby = async username => {
     body: JSON.stringify({ newPlayer: { name: username } })
   };
   try {
-    const response = await fetch(localUrl + path, options);
+    const response = await fetch(url + path, options);
     if (!response.ok) {
       throw new Error('Failed to join lobby.');
     }
@@ -21,15 +23,15 @@ export const createLobby = async username => {
   }
 };
 
-export const joinLobby = async (username, gameID) => {
+export const joinLobby = async (username, gameId) => {
   const path = '/api/v1/join_game';
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ playerName: username, gameId: gameID })
+    body: JSON.stringify({ playerName: username, gameId: gameId })
   };
   try {
-    const response = await fetch(localUrl + path, options);
+    const response = await fetch(url + path, options);
     if (!response.ok) {
       throw new Error('Failed to join lobby.');
     }
@@ -41,10 +43,10 @@ export const joinLobby = async (username, gameID) => {
   }
 };
 
-export const updateGameState = async gameID => {
-  const path = `/api/v1/game_state/${gameID}`;
+export const updateGameState = async gameId => {
+  const path = `/api/v1/game_state/${gameId}`;
   try {
-    const response = await fetch(localUrl + path);
+    const response = await fetch(url + path);
     if (!response.ok) {
       throw new Error('Failed to update game state.');
     }
@@ -55,10 +57,10 @@ export const updateGameState = async gameID => {
   }
 };
 
-export const updatePlayerState = async (gameID, playerID) => {
-  const path = `/api/v1/games/${gameID}/players/${playerID}`;
+export const updatePlayerState = async (gameId, playerId) => {
+  const path = `/api/v1/games/${gameId}/players/${playerId}`;
   try {
-    const response = await fetch(localUrl + path);
+    const response = await fetch(url + path);
     if (!response.ok) {
       throw new Error('Failed to update game state.');
     }
@@ -67,4 +69,29 @@ export const updatePlayerState = async (gameID, playerID) => {
   } catch (error) {
     throw Error(error.message);
   }
+};
+
+export const createSubscription = async (playerID, callback) => {
+  if (!App.cable) {
+    App.cable = ActionCable.createConsumer(
+      `${url}/cable?player_id=${playerID}`
+    );
+  }
+  App.cable.subscriptions.create(
+    { channel: 'GameStateChannel', player_id: playerID },
+    {
+      received: callback
+    }
+  );
+  console.log(App.cable);
+  // const cable = ActionCable.createConsumer(
+  //   `${url}/cable?player_id=${playerID}`
+  // );
+  // cable.subscriptions.create(
+  //   {
+  //     channel: 'GameStateChannel',
+  //     player_id: playerID
+  //   },
+  //   { received: callback }
+  // );
 };
