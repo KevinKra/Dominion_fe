@@ -1,11 +1,11 @@
-import React from "react";
-import "./ActionCards.scss";
-import Card from "../Card/Card";
-import { connect } from "react-redux";
+import React from 'react';
+import './ActionCards.scss';
+import Card from '../Card/Card';
+import { connect } from 'react-redux';
 
 export function ActionCards(props) {
   const actionCards = props.tableCards
-    .filter(card => card.category.includes("Action"))
+    .filter(card => card.category.includes('Action'))
     .map(card => (
       <Card
         name={card.name}
@@ -18,6 +18,7 @@ export function ActionCards(props) {
         key={card.id}
       />
     ));
+  console.log('TableDeck Action Cards:', props);
   return (
     <section className="ActionCards" onClick={e => props.buyCard(e)}>
       {actionCards}

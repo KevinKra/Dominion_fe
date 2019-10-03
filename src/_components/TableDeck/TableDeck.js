@@ -21,11 +21,13 @@ export class TableDeck extends Component {
     if (this.props.spendingPower < matchingStack.cost) {
       return console.log('not enough money to buy');
     } else {
+      console.log(matchingStack);
       const boughtId = matchingStack.id_list.pop();
       this.props.boughtCard(clickedName);
       this.props.spendTreasure(matchingStack.cost);
       this.props.bought(boughtId);
       this.props.useBuy();
+      this.props.updateDiscardImage(matchingStack.image);
     }
   };
 
@@ -54,7 +56,8 @@ const mapDispatchToProps = dispatch => ({
   spendTreasure: value => dispatch(actions.spendTreasure(value)),
   bought: id => dispatch(actions.bought(id)),
   boughtCard: cardName => dispatch(actions.boughtCard(cardName)),
-  useBuy: () => dispatch(actions.useBuy())
+  useBuy: () => dispatch(actions.useBuy()),
+  updateDiscardImage: imgurl => dispatch(actions.updateDiscardImage(imgurl))
 });
 
 export default connect(
