@@ -1,18 +1,18 @@
-@import "../../styles/_variables.scss";
-@import "../../styles/_animations.scss";
+@import '../../styles/_variables.scss';
+@import '../../styles/_animations.scss';
 
 .ActivatedCards {
   display: flex;
   position: absolute;
   justify-content: center;
-  font-family: "Germania One", cursive;
+  font-family: 'Germania One', cursive;
   z-index: 1;
   width: 50%;
   margin-top: 0.5rem;
   border: 1px solid $color2;
   border-bottom: 1px dashed $color1;
   border-top: 1px dashed $color1;
-  background-color: $color2;
+  background-color: rgba(0, 0, 0, 0.55);
   min-height: 100px;
   transition: 1s all;
   .waiting-response {
