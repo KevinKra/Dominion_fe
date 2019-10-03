@@ -9,7 +9,7 @@ import DiscardPile from '../DiscardPile/DiscardPile';
 import { updateGameState, updatePlayerState } from '../../_utils/apiCalls';
 import './PlayerSection.scss';
 
-const url = 'http://localhost:3000';
+// const url = 'http://localhost:3000';
 // const url = 'https://accession-game-server.herokuapp.com';
 
 export class PlayerSection extends Component {
@@ -121,7 +121,7 @@ export class PlayerSection extends Component {
 
   endTurn = async (boughtCardIds, discardPile, playerDeckIds) => {
     const url = 'https://accession-game-server.herokuapp.com';
-    const localUrl = 'http://localhost:3000';
+    // const localUrl = 'http://localhost:3000';
     const path = '/api/v1/endturn';
     const options = {
       method: 'POST',
@@ -135,7 +135,7 @@ export class PlayerSection extends Component {
       })
     };
     try {
-      const response = await fetch(localUrl + path, options);
+      const response = await fetch(url + path, options);
       if (!response.ok) {
         throw new Error('Failed to end turn.');
       }
