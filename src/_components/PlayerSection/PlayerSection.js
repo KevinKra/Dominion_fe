@@ -31,11 +31,11 @@ export class PlayerSection extends Component {
   };
 
   requestPlayerTurn = async () => {
-    const gameState = await updateGameState(this.props.gameID);
+    const gameState = await updateGameState(this.props.gameId);
     if (gameState.tableDeck.length === 0) {
       return console.log('Waiting for game to start.');
     }
-    if (gameState.activePlayerId === this.props.playerID) {
+    if (gameState.activePlayerId === this.props.playerId) {
       //active player
       console.log(
         "It's your turn, turnInterval turned off. Please complete your turn."
@@ -71,8 +71,8 @@ export class PlayerSection extends Component {
   updatePlayerData = async () => {
     if (!this.state.dataUpdated) {
       const playerData = await updatePlayerState(
-        this.props.gameID,
-        this.props.playerID
+        this.props.gameId,
+        this.props.playerId
       );
       console.log(playerData);
       const drawnCards = this.draw(playerData.deck);
@@ -127,8 +127,8 @@ export class PlayerSection extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        gameId: this.props.gameID,
-        playerId: this.props.playerID,
+        gameId: this.props.gameId,
+        playerId: this.props.playerId,
         deck: playerDeckIds,
         bought: boughtCardIds,
         discard: discardPile
@@ -154,7 +154,7 @@ export class PlayerSection extends Component {
         <section className="loading-page">
           <div className="loading-container">
             <h2>Waiting for Opponent</h2>
-            <p className="game-id">GAME ID: {this.props.gameID}</p>
+            <p className="game-id">GAME ID: {this.props.gameId}</p>
             <div className="loading-icon-container">
               <SVGLoaders.BallTriangle className="loading-icon" />
             </div>
@@ -183,8 +183,8 @@ export const mapStateToProps = state => ({
   playerDeck: state.playerDeck,
   playerHand: state.playerHand,
   discardPile: state.discardPile,
-  gameID: state.gameID,
-  playerID: state.playerID,
+  gameId: state.gameId,
+  playerId: state.playerId,
   bought: state.bought,
   activatedCards: state.activatedCards
 });
