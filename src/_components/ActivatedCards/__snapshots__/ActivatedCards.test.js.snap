@@ -16,7 +16,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       className="turn-loader"
     />
   </div>
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -35,7 +35,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -54,7 +54,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -72,7 +72,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -93,7 +93,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -107,7 +107,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     name="Mine"
     tags={Array []}
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -121,7 +121,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     name="Remodel"
     tags={Array []}
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -139,7 +139,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -158,7 +158,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -177,7 +177,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
       ]
     }
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Action",
@@ -191,7 +191,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     name="WorkShop"
     tags={Array []}
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Treasure",
@@ -203,7 +203,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     key="1515"
     name="Gold"
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Treasure",
@@ -215,7 +215,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     key="8923"
     name="Silver"
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Treasure",
@@ -227,7 +227,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     key="1113"
     name="Copper"
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Victory",
@@ -239,7 +239,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     key="6123"
     name="Estate"
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Victory",
@@ -251,7 +251,7 @@ exports[`<ActivatedCards /> should match the snapshot 1`] = `
     key="1344"
     name="Duchy"
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Victory",

@@ -5,7 +5,7 @@ exports[`<Victory /> should match the snapshot 1`] = `
   className="VictoryCards side-shelf"
   onClick={[Function]}
 >
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Victory",
@@ -17,7 +17,7 @@ exports[`<Victory /> should match the snapshot 1`] = `
     key="6123"
     name="Estate"
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Victory",
@@ -29,7 +29,7 @@ exports[`<Victory /> should match the snapshot 1`] = `
     key="1344"
     name="Duchy"
   />
-  <Card
+  <Connect(Card)
     category={
       Array [
         "Victory",

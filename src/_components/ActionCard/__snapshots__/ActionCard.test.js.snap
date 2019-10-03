@@ -6,7 +6,7 @@ exports[`ActionCard should match snapshot 1`] = `
   id={1}
   onClick={[Function]}
 >
-  <Card
+  <Connect(Card)
     category="cat"
     cost={0}
     desc="desc"
